@@ -9,7 +9,7 @@ built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept pr
 ## Repository
 - Main checkout: `C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio`   Remote: `origin` (private GitHub repo)
 - Build worktree (work here): `C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio\.claude\worktrees\agent-a6a10b538589455a4`, branch `worktree-agent-a6a10b538589455a4`
-- Commit: `753c491` (feat: all pages, project filtering, gallery lightbox, before/after slider, demo inquiry form). Target branch `vizam/initial-build` still at `12f9cd9`.
+- Commit: `9cad821` (slice A; previously `753c491`) (feat: all pages, project filtering, gallery lightbox, before/after slider, demo inquiry form). Target branch `vizam/initial-build` still at `12f9cd9`.
 - `.claude/` is ignored (`.git/info/exclude` and `.gitignore`); never commit it. Local `CLAUDE.md` stays git-excluded (rules: main checkout `CLAUDE.md`, read it from there).
 
 ## Approved decisions
@@ -25,10 +25,11 @@ built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept pr
 
 ## Done
 - Committed through `753c491`: scaffold (Next.js 16, security headers), WebP photos + credits, content/lib (schema, rate limit, filter), layout/header/menu/footer, hero carousel, the two scroll sections, all 8 page types, project filtering, gallery lightbox, before/after slider, demo inquiry form.
-- Uncommitted (left by the previous agent when the usage limit stopped it, unverified): removal of `lumen-cover.webp` and its references (contact page, content, credits); `playwright.config.ts`, `vitest.config.mts`, `tests/unit/before-after.test.tsx`, `tests/e2e/site.spec.ts`, `scripts/screenshots.mjs`; a first screenshot set in `docs/screenshots/` (240 px has only home); `test-results/` (must be git-ignored, never committed).
+- Slice A (QA infra) done: lumen-cover removal committed (no references left); Vitest + Playwright config, e2e spec, screenshot script committed; `test-results/` and `playwright-report/` git-ignored; 12 new lib unit tests (`tests/unit/lib-edge-cases.test.ts`); `playwright-core` pinned to 1.64.0 via `overrides` (axe pulled 1.65 and broke typecheck); stale eslint-disable removed.
+- `docs/screenshots/` (first set, incomplete) is still untracked: slice B regenerates and commits it.
 
 ## Pending (priority order)
-1. Slice A (QA infra): review + commit the uncommitted changes; git-ignore `test-results/` and `playwright-report/`; add Vitest unit tests for `lib/` (inquiry schema, rate limit, filter, math, process-inquiry); make `npm run lint`, `npm run typecheck`, `npm test`, `npm run build` pass.
+1. Slice A (QA infra): done.
 2. Slice B: Playwright e2e + axe green; verify the <250 px lock (`#root`, fixed elements 500px with `right:auto`, `html { overflow-x: auto }`); no horizontal scroll from 300 px; equal-size cards; full screenshot set at 240/390/768/1440 as compact WebP.
 3. Slice C (delivery): `README.md`, `docs/report.md` (incl. 80–120 word case-study blurb), `npm audit`, `npm ci` from lockfile.
 4. Slice D (Opus): QA/security review.
@@ -37,11 +38,11 @@ built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept pr
 ## Last verified checks
 | Check | Command | Result | When |
 |---|---|---|---|
-| Lint | `npm run lint` | not recorded | — |
-| Typecheck | `npm run typecheck` | not recorded | — |
-| Unit | `npm test` | not recorded | — |
+| Lint | `npm run lint` | pass (0 errors, 0 warnings) | 2026-11-06 |
+| Typecheck | `npm run typecheck` | pass | 2026-11-06 |
+| Unit | `npm test` | pass, 4 files, 30 tests | 2026-11-06 |
 | E2E + axe | `npm run test:e2e` | not recorded | — |
-| Build | `npm run build` | not recorded | — |
+| Build | `npm run build` | pass, 25 static pages | 2026-11-06 |
 | Audit | `npm audit` | not recorded | — |
 
 ## Known issues and risks
@@ -54,7 +55,7 @@ built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept pr
 - Env var names: none required. Media keys are read only by the site-media scripts; never copy them into the repo.
 
 ## Next step
-Slice A above.
+Slice B: Playwright e2e + axe (port 3102, stop any server afterwards), <250 px lock, 300 px no horizontal scroll, equal cards, full screenshot set at 240/390/768/1440 as WebP, then commit docs/screenshots.
 
 ## Waiting for approval
 - None blocking. Vercel preview needs Steeven to link the project; production deploy needs his approval.
