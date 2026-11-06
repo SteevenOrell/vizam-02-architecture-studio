@@ -76,10 +76,9 @@ export const projects: Project[] = [
       { label: 'Heritage', value: 'Adaptive reuse of an industrial shed' },
     ],
     materials: ['Lime plaster', 'Travertine', 'Pine', 'Woven rush'],
-    cover: { src: img.lumenCover, alt: 'Hotel lounge with a sculptural armchair, a floor lamp and raw plaster walls' },
+    cover: { src: img.lumenSuite, alt: 'Suite bedroom facing a wide window with the sea at sunset' },
     gallery: [
       { src: img.lumenReception, alt: 'Marble reception counter in a bright hall with dark joinery' },
-      { src: img.lumenSuite, alt: 'Suite bedroom facing a wide window with the sea at sunset' },
       { src: img.lumenPool, alt: 'Courtyard pool lit at dusk, surrounded by timber pavilions' },
     ],
   },

@@ -20,7 +20,6 @@ Licence: Pixabay Content License — free commercial use, no attribution require
 | `lumen-suite.webp` | 1280×721, 94 KB | ShimaFM | https://pixabay.com/photos/bedroom-luxury-modern-nature-10524001/ |
 | `lumen-pool.webp` | 1280×719, 107 KB | innokurnia | https://pixabay.com/photos/villa-property-bedroom-house-4555824/ |
 | `casa-velo-cover.webp` | 1280×720, 70 KB | Giovanni_cg | https://pixabay.com/photos/architecture-render-external-design-1477103/ |
-| `lumen-cover.webp` | 1280×852, 133 KB | Tama66 | https://pixabay.com/photos/hotel-lobby-interior-4199113/ |
 | `lumen-reception.webp` | 1280×854, 57 KB | AS_Photography | https://pixabay.com/photos/luxury-suite-design-modern-4720815/ |
 | `journal-stair.webp` | 1280×847, 99 KB | 3093594 | https://pixabay.com/photos/holland-netherlands-rotterdam-1637467/ |
 | `saline-cover.webp` | 1280×853, 76 KB | 9928598 | https://pixabay.com/photos/block-sky-clouds-building-4068976/ |

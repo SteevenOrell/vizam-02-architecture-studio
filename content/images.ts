@@ -10,7 +10,6 @@ import mireBefore from '@/assets/images/mire-before.webp';
 import mireCover from '@/assets/images/mire-cover.webp';
 import ombraAfter from '@/assets/images/ombra-after.webp';
 import ombraBefore from '@/assets/images/ombra-before.webp';
-import lumenCover from '@/assets/images/lumen-cover.webp';
 import lumenReception from '@/assets/images/lumen-reception.webp';
 import lumenSuite from '@/assets/images/lumen-suite.webp';
 import lumenPool from '@/assets/images/lumen-pool.webp';
@@ -40,7 +39,7 @@ export const img = {
   casaVeloCover, casaVeloFacade, casaVeloKitchen,
   mireAfter, mireBefore, mireCover,
   ombraAfter, ombraBefore,
-  lumenCover, lumenReception, lumenSuite, lumenPool,
+  lumenReception, lumenSuite, lumenPool,
   salineCover, salineModel, salineStair,
   northfoldCover, northfoldMeeting, northfoldWindows,
   kilnLoft,

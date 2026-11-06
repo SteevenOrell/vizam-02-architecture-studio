@@ -13,7 +13,7 @@ export default function ContactPage() {
     <div className="page-x grid gap-16 pt-36 pb-32 md:pt-44 lg:grid-cols-12">
       <div className="lg:col-span-4">
         <SectionLabel index="06" className="text-stone">Contact</SectionLabel>
-        <h1 className="display-lg mt-6">Start a conversation.</h1>
+        <h1 className="display-lg mt-6 !text-[clamp(2.5rem,4.2vw,4rem)]">Start a conversation.</h1>
         <p className="statement mt-8 !text-[clamp(1.25rem,2vw,1.75rem)] text-graphite/90">
           Whether it is a house, a single room or a building for many, a short brief helps us prepare the first visit.
         </p>
