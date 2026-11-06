@@ -17,7 +17,7 @@ mkdirSync(OUT, { recursive: true });
 const widths = [240, 390, 768, 1440];
 const pages = [
   ['home', '/'], ['projects', '/projects'], ['project', '/projects/mire-apartment'], ['studio', '/studio'],
-  ['services', '/services'], ['philosophy', '/philosophy'], ['journal', '/journal'], ['contact', '/contact'],
+  ['services', '/services'], ['philosophy', '/philosophy'], ['journal', '/journal'], ['journal-post', '/journal/notes-on-lime'], ['contact', '/contact'],
 ];
 const report = [];
 
@@ -55,9 +55,18 @@ for (const w of widths) {
     report.push({ width: w, page: name, overflowX: m.scrollWidth > m.clientWidth, ...m });
     const shot = join(RAW, `${w}-${name}.png`);
     await page.screenshot({ path: shot });
-    if (w === 1440 || w === 390 || (w === 240 && name === 'home') || (w === 768 && ['home', 'projects', 'contact'].includes(name))) {
+    {
       await toWebp(shot, `${w}-${name}`, w === 1440 ? 960 : Math.min(w, 520));
     }
+  }
+
+  if (w === 240) {
+    // The layout is locked at 500 px: capture it panned to the right edge to show the whole locked layout.
+    await page.goto(BASE + '/', { waitUntil: 'networkidle' });
+    await page.evaluate(() => window.scrollTo(260, 0));
+    await page.waitForTimeout(500);
+    await page.screenshot({ path: join(RAW, '240-lock-panned.png') });
+    await toWebp(join(RAW, '240-lock-panned.png'), '240-lock-panned', 240);
   }
 
   // Interaction states (at 240 px the fixed header is locked at 500 px, so its Menu button sits off-screen)
