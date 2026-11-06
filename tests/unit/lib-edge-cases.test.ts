@@ -70,6 +70,13 @@ describe('rate limiter edge cases', () => {
     rl.reset();
     expect(rl.check('c', 1).allowed).toBe(true);
   });
+  it('evicts the least recently seen key, so an active blocked key stays blocked', () => {
+    const rl = createRateLimiter({ limit: 1, windowMs: 1000, maxKeys: 2 });
+    rl.check('a', 0); rl.check('b', 0);
+    expect(rl.check('a', 1).allowed).toBe(false); // a is now most recent
+    rl.check('c', 2); // evicts b, not a
+    expect(rl.check('a', 3).allowed).toBe(false);
+  });
 });
 
 describe('processInquiry edge cases', () => {

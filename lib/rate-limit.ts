@@ -13,13 +13,15 @@ export function createRateLimiter({ limit, windowMs, maxKeys = 5000 }: { limit: 
   return {
     check(key, now = Date.now()) {
       const recent = (hits.get(key) ?? []).filter((t) => now - t < windowMs);
+      // Re-insert so Map order is least-recently-seen first: eviction then drops idle keys, not active ones.
+      hits.delete(key);
       if (recent.length >= limit) {
         hits.set(key, recent);
         return { allowed: false, remaining: 0, retryAfterMs: windowMs - (now - recent[0]) };
       }
       recent.push(now);
       hits.set(key, recent);
-      // Bound memory: drop the oldest key when the map grows too large.
+      // Bound memory: drop the least recently seen key when the map grows too large.
       if (hits.size > maxKeys) hits.delete(hits.keys().next().value as string);
       return { allowed: true, remaining: limit - recent.length, retryAfterMs: 0 };
     },
