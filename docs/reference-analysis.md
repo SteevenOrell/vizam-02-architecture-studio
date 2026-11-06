@@ -145,7 +145,7 @@ taken. Where a behaviour could not be observed, it is marked **unverified**.
 
 | Aspect | Observed | Ostrel decision |
 |---|---|---|
-| Display type | Neo-grotesk, line-height ≈ 0.75–0.8, −3 % tracking (C); serif display (C, D) | **Instrument Sans**-free choice: *Schibsted Grotesk* for display/UI, *Newsreader* (serif, optical sizes) for statements; both via `next/font/google`, self-hosted at build |
+| Display type | Neo-grotesk, line-height ≈ 0.75–0.8, −3 % tracking (C); serif display (C, D) | Families not used by any reference: *Schibsted Grotesk* for display/UI, *Newsreader* (serif, optical sizes) for statements; both via `next/font/google`, self-hosted at build |
 | Micro text | 12 px meta (C), small caps labels (B), typewriter mono (A) | 11–12 px meta in *JetBrains Mono* uppercase for document/metadata voice |
 | Palette | White/black (C), warm off-white + brown (B), beige (D), paper + black (A) | "Plaster" off-white `#EEEBE4`, "Graphite" `#1B1A17`, "Oxide" accent `#9A4A2C` (terracotta), "Paper" `#F6F3EC`, "Stone" grey `#8C877D` |
 | Grid | Asymmetric staggered grid (C) | 12-column grid with deliberate offsets; captions as label/value rows |
@@ -162,7 +162,22 @@ taken. Where a behaviour could not be observed, it is marked **unverified**.
   (see below).
 - No reference was inaccessible; all four loaded over HTTPS.
 
-### stillform.homes mobile
+### stillform.homes mobile (390 × 844, second run, 12 frames at 800 px steps, load ≈ 16 s)
 
-Captured separately at 390 × 844 in a second, lighter run (12 frames, 800 px steps); results are summarised in the
-appendix below.
+- Hero: full-bleed photo, serif "Space, Considered." top-left, two small uppercase links with arrows, small caption
+  pairs at the bottom.
+- The scattered cards of desktop are reduced to a **single rounded card with prev/next round buttons** under the serif
+  line — the converging-cards effect is not used on mobile.
+- The statement with the inline thumbnail reflows to ≈ 18 px text; marquee + growing central image are kept and grow
+  to full-bleed (frames 04 → 05).
+- The 3D "structure" sequence becomes a full-screen pinned scene with a vertical progress rail on the right, a stepper
+  "01 OF 07 … 04 OF 07" and labelled layers (Full view, Walls, Floor, Roof) that change on scroll.
+- Lesson for Ostrel: on small screens simplify the choreography (fewer moving layers), keep a clear step counter and a
+  progress indicator in pinned sections.
+
+## Studio name check
+
+Name chosen: **Ostrel Atelier** (an invented word). Web searches run on 2026-11-05:
+`"Ostrel" architecture studio` and `"Ostrel" interior design` — no architecture or interior studio of that name
+was found (results were only near-spellings such as Ostrowscy Architekci, Osterlund Architects, Östlinghs).
+This is a best-effort check, not a trademark search.
