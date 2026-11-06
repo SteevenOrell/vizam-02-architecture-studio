@@ -59,8 +59,8 @@ export function Header() {
           <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/45 to-transparent" />
         )}
         <div className="page-x relative flex h-[4.5rem] items-center justify-between gap-6">
-          <Link href="/" className="group flex items-baseline gap-2" aria-label="Ostrel Atelier — home">
-            <Wordmark className="h-[1.35rem] w-auto" />
+          <Link href="/" className="group flex items-baseline gap-2" aria-label="Ostrel Atelier, home">
+            <Wordmark className="h-[1.35rem] w-auto" />{' '}
             <span className="meta hidden opacity-70 sm:inline">Atelier</span>
           </Link>
 

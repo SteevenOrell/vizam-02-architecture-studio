@@ -175,7 +175,6 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
                   type="button"
                   onClick={() => go(i)}
                   aria-current={i === index ? 'true' : undefined}
-                  aria-label={`Show ${p.title}, ${DISCIPLINE_LABEL[p.discipline]}, ${p.year}`}
                   className={`flex flex-col items-center px-2 py-2 text-center transition-opacity duration-500 ${i === index ? 'opacity-100' : 'opacity-60 hover:opacity-90'}`}
                 >
                   <span className="text-[0.95rem] font-medium tracking-tight">{p.title}</span>
