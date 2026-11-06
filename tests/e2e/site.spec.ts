@@ -41,9 +41,9 @@ test.describe('navigation', () => {
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Notes from the bench');
   });
 
-  for (const path of ['/projects/does-not-exist', '/journal/does-not-exist']) {
+  for (const path of ['/projects/does-not-exist', '/journal/does-not-exist', '/journal/%ZZ']) {
     test(`unknown route ${path} returns a hard 404`, async ({ page }) => {
-      // dynamicParams = false on both [slug] routes: slugs outside generateStaticParams answer 404 on the first hit.
+      // proxy.ts rewrites unknown or malformed slugs to a missing route, so they answer 404 on the first hit.
       const res = await page.goto(path);
       expect(res?.status()).toBe(404);
       expect(await page.locator('meta[name="robots"][content*="noindex"]').count()).toBeGreaterThan(0);
