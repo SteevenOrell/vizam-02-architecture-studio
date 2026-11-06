@@ -41,14 +41,15 @@ test.describe('navigation', () => {
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Notes from the bench');
   });
 
-  test('unknown routes show the 404 page', async ({ page }) => {
-    // Next streams not-found for unprerendered slugs: the status can be 200 on a first hit (documented), so the
-    // contract checked here is the 404 page plus the injected noindex robots tag.
-    const res = await page.goto('/projects/does-not-exist');
-    expect([200, 404]).toContain(res?.status());
-    expect(await page.locator('meta[name="robots"][content*="noindex"]').count()).toBeGreaterThan(0);
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('never built');
-  });
+  for (const path of ['/projects/does-not-exist', '/journal/does-not-exist']) {
+    test(`unknown route ${path} returns a hard 404`, async ({ page }) => {
+      // dynamicParams = false on both [slug] routes: slugs outside generateStaticParams answer 404 on the first hit.
+      const res = await page.goto(path);
+      expect(res?.status()).toBe(404);
+      expect(await page.locator('meta[name="robots"][content*="noindex"]').count()).toBeGreaterThan(0);
+      await expect(page.getByRole('heading', { level: 1 })).toContainText('never built');
+    });
+  }
 });
 
 test.describe('hero carousel', () => {
