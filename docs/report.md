@@ -14,7 +14,7 @@ VIZAM concept project — fictional studio. Built on a worktree branch and deliv
   - A unit test keeps the slug lists in sync with the content.
 
 ## Status
-All planned pages and features are built, and the checks below pass. An independent security review and final QA sign-off (Slice D) follows.
+All planned pages and features are built, and the checks below pass. The independent security review and final QA sign-off (Slice D, at the end of this report) found the site ready.
 
 ## Commands run (2026-11-06)
 | Command | Result |
@@ -62,3 +62,57 @@ Screenshots (`docs/screenshots/`, 47 WebP) were taken with Playwright headless C
 
 ## Portfolio case-study blurb
 Ostrel Atelier is a VIZAM concept for an invented architecture and interior design studio. We set out to give quiet, material-led work a site that feels like walking through a building: a full-bleed photographic carousel, a pinned scroll sequence that opens from a small framed window to full bleed, and a cinematic philosophy section that follows the light. Projects filter instantly, galleries open in an accessible lightbox, and a before-and-after slider works with the keyboard as well as the mouse. Built with Next.js 16, TypeScript, Tailwind, GSAP and Motion, it is fully responsive, respects reduced motion, passes axe checks and ships with a validated demo inquiry form.
+
+## Slice D — independent review (2026-11-06)
+Reviewer: a fresh Opus agent. The code was read directly; earlier claims were re-checked, not trusted.
+
+### Security findings
+| # | Severity | Finding | Status |
+|---|---|---|---|
+| 1 | Low | `proxy.ts` called `decodeURIComponent` without a guard: a malformed slug such as `/journal/%ZZ` or `/projects/%E0%A4%A` threw and returned **500** (reproduced against the production build). | Fixed in `e7f902e`: malformed slugs are treated as unknown and return 404. Unit tests plus an e2e case added. |
+| 2 | Low | The rate limiter's memory cap evicted the first-inserted key, which could be an active, blocked client; re-setting a Map key does not move it. | Fixed in `0243799`: keys are re-inserted on every check, so eviction drops the least recently seen key. Unit test added. |
+| 3 | Info | `Permissions-Policy` listed the deprecated `interest-cohort` token, which Chrome reports as a console error. | Fixed in `f42e370`. |
+| 4 | Low | The rate-limit key uses the first `X-Forwarded-For` entry. On Vercel the platform sets this header; behind another host or no proxy it can be spoofed, so the limiter can be bypassed. The limiter is also per instance and in memory. | Recommendation: before real use, read the IP from the trusted platform header and move the limiter to a shared store (KV or Redis). |
+| 5 | Low | The CSP allows `'unsafe-inline'` for scripts (documented trade-off for static Cache Components pages). | Recommendation: switch to nonces or hashes if the site ever handles real user data. |
+| 6 | Info | No `Strict-Transport-Security` header in `next.config.ts`. Vercel adds HSTS on its domains. | Recommendation: add HSTS if the site is hosted elsewhere or on a custom domain without it. |
+
+Verified with no change needed:
+- **Server action:** the input is `unknown` and is re-parsed with the shared Zod schema. Every string has a maximum length, the enums are closed and the services array is capped. Unknown keys are stripped.
+- **Error messages:** they are static and never echo submitted values. The action catches errors and returns a generic message.
+- **No personal data:** nothing is stored, logged or sent. There is no `console.*` anywhere in `app/`, `components/`, `lib/` or `content/`.
+- **Bot handling:** the honeypot and the minimum fill time give bots a silent fake success.
+- **Rate limiting:** the limit is checked before parsing, and the client key is a truncated SHA-256 hash, so raw IPs are not held. Memory is bounded at 5,000 keys × 5 timestamps.
+- **Proxy:** the matcher covers only `/projects/:slug` and `/journal/:slug`. The section lookup uses an own-property check. Traversal-style slugs such as `..%2F` return 404, and a trailing slash returns a 308 redirect.
+- **Headers on the production build:** CSP (`default-src 'self'`, `frame-ancestors 'none'`, `form-action 'self'`, `base-uri 'self'`, `object-src 'none'`), `nosniff`, `X-Frame-Options: DENY`, the Referrer-Policy and the Permissions-Policy are all present, and there is no `X-Powered-By`.
+- **XSS:** there is no `dangerouslySetInnerHTML`, `innerHTML` or `eval`. All `href`s are built from static content slugs or `mailto:` with the site's own address. No `target="_blank"` links exist, so no `rel` issue. Images are local only, with no `remotePatterns`.
+- **Secrets:** the full `git log --all -p` history has no API keys, tokens or `.env` files. `.claude/`, `test-results/`, `playwright-report/` and `.secrets` never appear in any commit. Only WebP images are tracked (34 assets and 47 screenshots), with no originals.
+
+### Final QA against the brief
+- **Pages:** all 8 page types are present: Home, Projects, Project details, Studio, Services, Philosophy, Journal (index and post), and Contact / Start a project.
+- **Feature coverage:** the e2e suite covers each of these:
+  - the working carousel (controls, keyboard, pause, autoplay, no autoplay with reduced motion);
+  - URL-synced filtering;
+  - the gallery lightbox;
+  - the before/after slider with arrows, Page Up/Down and Home/End;
+  - the inquiry form with "Demo form", "Send brief (demo)" and "Demo submission received (not delivered)".
+- **Scroll animation:** GSAP ScrollTrigger is used in exactly two components (`ScrollShowcase`, `CinematicPhilosophy`). Each runs under `matchMedia('(prefers-reduced-motion: no-preference)')` and keeps static fallback markup.
+- **Under 250 px:** the lock works. `#root` and the `.is-fixed` elements (header, menu, lightbox, skip link) are 500 px wide with `right: auto`, and `html { overflow-x: auto }` is set.
+- **Labelling:** "VIZAM concept project — fictional studio" appears in the footer (`site.disclaimer`), the menu and the README.
+- **Images:** WebP only, with credits in `assets/images/CREDITS.md`.
+- **Screenshots reviewed:** `1440-home`, `390-menu-open`, `768-filter-interiors` and `240-lock-panned` show no defects beyond the known under-250 px header limitation.
+
+### Gate after fixes (2026-11-06)
+| Command | Result |
+|---|---|
+| `npm ci` | pass, 0 vulnerabilities |
+| `npm run lint` | pass |
+| `npm run typecheck` | pass |
+| `npm test` | pass — 5 files, 36 tests |
+| `npm run build` | pass — 25 static pages, Proxy listed |
+| `npm run test:e2e -- --workers=2` (production build, port 3102) | pass — 35 of 35 |
+| `npm audit` | found 0 vulnerabilities |
+
+The server on port 3102 was stopped afterwards.
+
+### Verdict
+**Ready** for the PR as a concept and portfolio site. Before any real-client or production use, address recommendations 4 to 6 and get an independent security review.

@@ -1,6 +1,6 @@
 # Agent handoff — VIZAM concept 02: Ostrel Atelier (architecture & interior studio)
 
-_Last updated: 2026-11-06 by the slice C agent_
+_Last updated: 2026-11-06 by the slice D agent_
 
 ## Objective
 Premium, visually experimental architecture & interior design studio site for a fictional studio ("Ostrel Atelier"),
@@ -28,24 +28,29 @@ built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept pr
 - Slice A (QA infra) done: lumen-cover removal committed (no references left); Vitest + Playwright config, e2e spec, screenshot script committed; `test-results/` and `playwright-report/` git-ignored; 12 new lib unit tests (`tests/unit/lib-edge-cases.test.ts`); `playwright-core` pinned to 1.64.0 via `overrides` (axe pulled 1.65 and broke typecheck); stale eslint-disable removed.
 - Slice B (browser QA) done: e2e + axe green (33 tests); axe fixes (carousel rail buttons and home link accessible names now match visible text); new e2e for the <250 px lock (incl. open menu and lightbox), equal cards in project and journal grids at 390/768/1440, menu close button/backdrop; `docs/screenshots/` regenerated (47 WebP, about 1 MB: all pages at 240/390/768/1440, open menu, filter state, showcase, 240 px locked and panned) and committed.
 
-- Slice C done: hard 404 via proxy.ts + content/slugs.ts (Cache Components rejects dynamicParams=false); e2e asserts 404 for project and journal; 1440 showcase screenshot retaken; README.md written; full gate green (see below). docs/report.md was NOT written: the harness blocked the report file write for the subagent, so the content was returned to the orchestrator to place.
+- Slice C done: hard 404 via proxy.ts + content/slugs.ts (Cache Components rejects dynamicParams=false); e2e asserts 404 for project and journal; 1440 showcase screenshot retaken; README.md written; full gate green (see below). docs/report.md committed later (b635457).
+- Slice D done (independent security review and QA sign-off, verdict READY):
+  - fixed the 500 on malformed percent-encoded slugs in proxy.ts (e7f902e);
+  - the rate limiter now evicts the least recently seen key (0243799);
+  - dropped the deprecated interest-cohort token (f42e370).
+  - Recommendations, not changed: use a trusted IP header and a shared rate-limit store, use CSP nonces, and add HSTS when not hosted on Vercel. Details are in the "Slice D" section of docs/report.md.
 
 ## Pending (priority order)
 1. Slice A (QA infra): done.
 2. Slice B: Playwright e2e + axe green; verify the <250 px lock (`#root`, fixed elements 500px with `right:auto`, `html { overflow-x: auto }`); no horizontal scroll from 300 px; equal-size cards; full screenshot set at 240/390/768/1440 as compact WebP.
 3. Slice C (delivery): `README.md`, `docs/report.md` (incl. 80–120 word case-study blurb), `npm audit`, `npm ci` from lockfile.
-4. Slice D (Opus): QA/security review.
+4. Slice D (Opus): QA/security review: done (ready).
 5. Orchestrator: verify, fast-forward `vizam/initial-build`, push, open PR.
 
-## Last verified checks (2026-11-06, slice C)
+## Last verified checks (2026-11-06, slice D, after fixes)
 | Check | Command | Result |
 |---|---|---|
-| Install | npm ci | pass, 446 packages, 0 vulnerabilities |
+| Install | npm ci | pass, 0 vulnerabilities |
 | Lint | npm run lint | pass |
 | Typecheck | npm run typecheck | pass |
-| Unit | npm test | pass, 5 files, 32 tests |
+| Unit | npm test | pass, 5 files, 36 tests |
 | Build | npm run build | pass, 25 static pages, Proxy listed |
-| E2E + axe | npm run test:e2e -- --workers=2 (prod build, port 3102) | pass, 34 of 34 in one run |
+| E2E + axe | npm run test:e2e -- --workers=2 (prod build, port 3102) | pass, 35 of 35; server stopped afterwards |
 | Audit | npm audit | found 0 vulnerabilities |
 
 ## Known issues and risks
@@ -62,7 +67,7 @@ built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept pr
 - Env var names: none required. Media keys are read only by the site-media scripts; never copy them into the repo.
 
 ## Next step
-Slice D (Opus): security review and final QA sign-off. Also place docs/report.md if still missing.
+Orchestrator: fast-forward `vizam/initial-build` to this branch, push it and open the PR into `main` (no merge, no push to main, no deploy).
 
 ## Waiting for approval
 - None blocking. Vercel preview needs Steeven to link the project; production deploy needs his approval.
