@@ -36,7 +36,7 @@ export const inquirySchema = z.object({
   budget: z.enum(BUDGETS, { error: 'Choose a budget range (or “Prefer not to say”).' }),
   timeline: z.enum(TIMELINES, { error: 'Choose a timeline.' }),
   message: trimmed(2000).min(20, { error: 'Tell us a little more — at least 20 characters.' }),
-  consent: z.literal(true, { error: 'Please confirm you understand this is a demo form.' }),
+  consent: z.boolean().refine((v) => v === true, { error: 'Please confirm you understand this is a demo form.' }),
   // Anti-spam: must stay empty (hidden from people), and the form must have been open for a moment.
   website: z.string().max(200).optional(),
   startedAt: z.number().int().nonnegative().optional(),
