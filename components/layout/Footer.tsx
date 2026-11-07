@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { nav, site } from '@/content/studio';
-import { BinderClip } from '@/components/ui/BinderClip';
+import { FooterNote } from '@/components/layout/FooterNote';
 
 export function Footer() {
   const year = 2026;
@@ -45,23 +45,8 @@ export function Footer() {
             <p className="mt-6 text-stone-light">Mon–Fri, 09:00–18:00 · Visits by appointment</p>
           </div>
 
-          <aside aria-label="Colophon" className="relative md:col-span-2 lg:col-span-5 lg:pl-8">
-            <div className="paper relative mx-auto max-w-md rotate-[-1.5deg] px-7 pt-12 pb-6 text-graphite md:mx-0 md:ml-auto">
-              <BinderClip className="absolute -top-7 left-8 h-14 w-12 text-graphite" />
-              <div className="flex items-baseline justify-between">
-                <p className="meta">A note from the studio</p>
-                <p className="meta text-stone">No. 02</p>
-              </div>
-              <p className="ruled mt-4 font-serif text-[1.15rem] italic">
-                Ostrel Atelier is a fictional studio — a VIZAM concept project. Projects, people and words are invented;
-                photographs are stock images credited in the repository.
-              </p>
-              <div className="meta mt-4 flex justify-between border-t border-hairline pt-3 text-stone">
-                <span>OA / VZM</span>
-                <span>Thank you</span>
-                <span>{year}</span>
-              </div>
-            </div>
+          <aside aria-label="Colophon" className="relative min-w-0 md:col-span-2 lg:col-span-5 lg:pl-8">
+            <FooterNote year={year} />
           </aside>
         </div>
 

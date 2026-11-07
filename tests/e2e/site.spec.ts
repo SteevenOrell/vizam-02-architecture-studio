@@ -171,6 +171,28 @@ test.describe('inquiry form (demo)', () => {
   });
 });
 
+test.describe('footer paper note', () => {
+  test('can be written on and cleared, and sends nothing', async ({ page }) => {
+    const requests: string[] = [];
+    page.on('request', (r) => {
+      if (r.method() !== 'GET') requests.push(`${r.method()} ${r.url()}`);
+    });
+    await page.goto('/studio');
+    const note = page.getByLabel(/Write a note on the paper/);
+    // The footer is revealed by a "curtain": it is only clickable once the page is scrolled to the bottom.
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await note.fill('A courtyard house with a quiet kitchen.');
+    await page.getByLabel('Signed').fill('JD');
+    await note.press('Enter'); // must not submit anything
+    await expect(page.getByText('Paper only — nothing is sent or saved.')).toBeVisible();
+    await page.getByRole('button', { name: 'Clear' }).click();
+    await expect(note).toHaveValue('');
+    await expect(page.getByLabel('Signed')).toHaveValue('');
+    expect(requests).toEqual([]);
+    expect(await page.evaluate(() => localStorage.length + sessionStorage.length)).toBe(0);
+  });
+});
+
 test.describe('reduced motion', () => {
   test('scroll sections render as static, readable content', async ({ browser }) => {
     const ctx = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1440, height: 900 } });
