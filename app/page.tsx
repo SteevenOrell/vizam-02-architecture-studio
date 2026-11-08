@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { CinematicPhilosophy } from '@/components/home/CinematicPhilosophy';
 import { HeroCarousel } from '@/components/home/HeroCarousel';
 import { HomeToDrawings } from '@/components/home/HomeToDrawings';
-import { ScrollShowcase } from '@/components/home/ScrollShowcase';
+import { ProjectPanels } from '@/components/home/ProjectPanels';
 import { PostCard } from '@/components/journal/PostCard';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { ArrowLink, MetaRows, SectionLabel } from '@/components/ui/bits';
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ScrollShowcase projects={showcase} />
+      <ProjectPanels projects={showcase} />
 
       {/* (03) Services — restrained index rows */}
       <section aria-labelledby="services-title" className="page-x py-28 md:py-36">
