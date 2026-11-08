@@ -111,7 +111,7 @@ export const projects: Project[] = [
       { label: 'Completion', value: 'Expected 2026' },
     ],
     materials: ['White concrete', 'Salt-glazed tile', 'Galvanised steel', 'Cork'],
-    cover: { src: img.salineCover, alt: 'A white cubic building with a glazed base beside a calm stretch of water' },
+    cover: { src: img.salineCover, alt: 'White concrete exhibition pavilion with a folded roof above calm salt pans' },
     gallery: [
       { src: img.salineModel, alt: 'White study model of a pavilion with a roof light and a sunken court' },
       { src: img.salineStair, alt: 'Concrete stair washed by a hidden line of warm light' },
@@ -183,7 +183,7 @@ export const projects: Project[] = [
       { label: 'Certification', value: 'Targeting low-embodied-carbon fit-out' },
     ],
     materials: ['Polished screed', 'Birch plywood', 'Wool felt', 'Powder-coated steel'],
-    cover: { src: img.northfoldCover, alt: 'Open-plan workplace with white columns, long tables and plants' },
+    cover: { src: img.northfoldCover, alt: 'Open-plan workplace with concrete beams, oak tables and plants' },
     gallery: [
       { src: img.northfoldMeeting, alt: 'Meeting room with a long table, white chairs and a whiteboard wall' },
       { src: img.northfoldWindows, alt: 'Quiet corner of tables and chairs by tall windows' },

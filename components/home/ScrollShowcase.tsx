@@ -12,7 +12,7 @@ import { pad2 } from '@/lib/math';
 /**
  * Scroll-driven section 1 of 2 — "Selected work".
  * Without JS or with prefers-reduced-motion: a plain, readable list (the default markup).
- * With motion allowed: the stage pins; the first frame grows from a small framed opening to full bleed, then each
+ * With motion allowed: the stage pins; the first frame is complete and readable, then each
  * following project is revealed by an upward clip-path wipe while its caption replaces the previous one.
  */
 export function ScrollShowcase({ projects }: { projects: Project[] }) {
@@ -30,14 +30,15 @@ export function ScrollShowcase({ projects }: { projects: Project[] }) {
     mm.add('(prefers-reduced-motion: no-preference)', () => {
       el.dataset.enhanced = 'true';
       const frames = gsap.utils.toArray<HTMLElement>('[data-frame]', el);
-      const imgs = gsap.utils.toArray<HTMLElement>('[data-frame-img]', el);
+
       const captions = gsap.utils.toArray<HTMLElement>('[data-caption]', el);
       const bar = el.querySelector<HTMLElement>('[data-bar]');
 
-      gsap.set(frames[0], { clipPath: 'inset(24% 34% 24% 34% round 20px)' });
+      gsap.set(frames[0], { clipPath: 'inset(0% 0% 0% 0%)' });
       gsap.set(frames.slice(1), { clipPath: 'inset(100% 0% 0% 0% round 0px)' });
-      gsap.set(imgs, { scale: 1.22 });
+
       gsap.set(captions, { autoAlpha: 0, y: 40 });
+      gsap.set(captions[0], { autoAlpha: 1, y: 0 });
 
       const tl = gsap.timeline({
         defaults: { ease: 'none' },
@@ -49,23 +50,19 @@ export function ScrollShowcase({ projects }: { projects: Project[] }) {
           scrub: 0.6,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            const i = Math.min(n - 1, Math.floor(self.progress * n * 0.999));
+            const i = Math.min(n - 1, Math.floor(self.progress * (n + 0.5)));
             if (counter.current) counter.current.textContent = pad2(i + 1);
           },
         },
       });
 
-      // Step 0: the opening widens into a full-bleed frame.
-      tl.to(frames[0], { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1 }, 0)
-        .to(imgs[0], { scale: 1, duration: 1 }, 0)
-        .to(captions[0], { autoAlpha: 1, y: 0, duration: 0.35 }, 0.6);
+      // Hold the full photograph on entry; no tiny crop or magnification.
+      tl.to({}, { duration: 1 }, 0);
 
       // Following steps: wipe the next frame up over the previous one.
       for (let i = 1; i < n; i++) {
         tl.to(captions[i - 1], { autoAlpha: 0, y: -30, duration: 0.25 }, i)
           .to(frames[i], { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1 }, i)
-          .to(imgs[i], { scale: 1, duration: 1 }, i)
-          .to(imgs[i - 1], { scale: 0.92, duration: 1 }, i)
           .to(captions[i], { autoAlpha: 1, y: 0, duration: 0.35 }, i + 0.6);
       }
       if (bar) tl.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: n, ease: 'none' }, 0);
@@ -112,8 +109,8 @@ export function ScrollShowcase({ projects }: { projects: Project[] }) {
                 data-frame
                 className="relative aspect-[4/3] overflow-hidden md:col-span-8 group-data-[enhanced=true]/show:absolute group-data-[enhanced=true]/show:inset-0 group-data-[enhanced=true]/show:aspect-auto"
               >
-                <div data-frame-img className="absolute inset-0 will-change-transform">
-                  <Image src={p.cover.src} alt={p.cover.alt} fill sizes="100vw" placeholder="blur" className="object-cover" />
+                <div className="absolute inset-0">
+                  <Image src={p.cover.src} alt={p.cover.alt} fill sizes="(max-aspect-ratio: 16/9) 178svh, 100vw" placeholder="blur" className="object-cover" />
                 </div>
                 <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-t from-black/70 via-black/10 to-transparent group-data-[enhanced=true]/show:block" />
               </div>

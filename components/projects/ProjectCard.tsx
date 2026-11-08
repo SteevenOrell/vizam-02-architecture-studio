@@ -6,7 +6,7 @@ import { DISCIPLINE_LABEL, type Project } from '@/content/types';
 export function ProjectCard({ project, index, sizes = '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' }: { project: Project; index?: number; sizes?: string }) {
   return (
     <Link href={`/projects/${project.slug}`} className="group flex h-full flex-col" data-testid="project-card">
-      <div className="relative aspect-[4/5] overflow-hidden bg-hairline">
+      <div className="relative aspect-[3/2] overflow-hidden bg-hairline">
         <Image
           src={project.cover.src}
           alt={project.cover.alt}

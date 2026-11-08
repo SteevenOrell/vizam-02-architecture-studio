@@ -1,0 +1,18 @@
+[WebServer] (node:24048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 2 workers
+
+(node:8796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:8704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [chromium] › tests\e2e\media-refinement.spec.ts:4:7 › hero and selected-work composition at 390px (11.4s)
+  ok 1 [chromium] › tests\e2e\media-refinement.spec.ts:4:7 › hero and selected-work composition at 1440px (17.2s)
+  ok 4 [chromium] › tests\e2e\site.spec.ts:175:7 › footer contact card › shows contact details without editable fields or form actions (1.7s)
+  ok 3 [chromium] › tests\e2e\site.spec.ts:121:7 › projects › gallery lightbox opens, browses with arrows and closes with Escape (8.3s)
+  ok 5 [chromium] › tests\e2e\site.spec.ts:187:7 › reduced motion › scroll sections render as static, readable content (2.8s)
+  ok 6 [chromium] › tests\e2e\site.spec.ts:198:7 › reduced motion › scroll sections are enhanced (pinned) when motion is allowed (3.8s)
+  ok 7 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: / (9.7s)
+
+  7 passed (38.7s)

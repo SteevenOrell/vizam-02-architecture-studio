@@ -171,25 +171,15 @@ test.describe('inquiry form (demo)', () => {
   });
 });
 
-test.describe('footer paper note', () => {
-  test('can be written on and cleared, and sends nothing', async ({ page }) => {
-    const requests: string[] = [];
-    page.on('request', (r) => {
-      if (r.method() !== 'GET') requests.push(`${r.method()} ${r.url()}`);
-    });
+test.describe('footer contact card', () => {
+  test('shows contact details without editable fields or form actions', async ({ page }) => {
     await page.goto('/studio');
-    const note = page.getByLabel(/Write a note on the paper/);
-    // The footer is revealed by a "curtain": it is only clickable once the page is scrolled to the bottom.
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-    await note.fill('A courtyard house with a quiet kitchen.');
-    await page.getByLabel('Signed').fill('JD');
-    await note.press('Enter'); // must not submit anything
-    await expect(page.getByText('Paper only — nothing is sent or saved.')).toBeVisible();
-    await page.getByRole('button', { name: 'Clear' }).click();
-    await expect(note).toHaveValue('');
-    await expect(page.getByLabel('Signed')).toHaveValue('');
-    expect(requests).toEqual([]);
-    expect(await page.evaluate(() => localStorage.length + sessionStorage.length)).toBe(0);
+    const card = page.getByRole('region', { name: 'Contact us', exact: true });
+    await expect(card).toBeVisible();
+    await expect(card).toContainText('hello@ostrel.example');
+    await expect(card).toContainText('Contact details are illustrative');
+    await expect(card.locator('form, input, textarea, button')).toHaveCount(0);
   });
 });
 

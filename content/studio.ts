@@ -97,13 +97,13 @@ export const principles: Principle[] = [
     index: '02',
     title: 'Weight is a comfort',
     body: 'Thick walls, deep reveals and heavy materials make rooms that feel safe and stay cool.',
-    image: { src: img.philosophyModel, alt: 'White model of a deep window frame catching light' },
+    image: { src: img.philosophyModel, alt: 'Deep masonry window reveal and stone window seat catching daylight' },
   },
   {
     index: '03',
     title: 'Thresholds are rooms',
     body: 'Stairs, porches and window seats are where life happens. We give them space.',
-    image: { src: img.philosophyStairs, alt: 'Old staircase with sunlight from a tall window' },
+    image: { src: img.philosophyStairs, alt: 'Oak stair landing with a generous built-in window seat' },
   },
   {
     index: '04',

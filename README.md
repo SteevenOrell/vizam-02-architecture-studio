@@ -48,7 +48,7 @@ components/     layout, home (carousel, scroll showcase), projects (filter, gall
 content/        typed local content: projects, journal, studio, image registry, slug lists
 lib/            inquiry schema and processing, rate limiter, filter, math, reduced-motion hook
 proxy.ts        hard 404 for unknown /projects/<slug> and /journal/<slug>
-assets/images/  compressed WebP photos (credits in CREDITS.md)
+assets/images/  optimized WebP stock and AI-generated images (credits in CREDITS.md)
 tests/          unit (Vitest) and e2e (Playwright + axe)
 docs/           plan, reference analysis, report, handoff, screenshots
 ```
@@ -65,7 +65,9 @@ Below 250 px width the layout locks at 500 px and can be panned (`#root` and fix
 
 ## Image credits
 
-See [`assets/images/CREDITS.md`](assets/images/CREDITS.md).
+See [`assets/images/CREDITS.md`](assets/images/CREDITS.md). The 2026-11-08 refinement replaces 11 low-resolution or unsuitable images with section-specific AI-generated concepts. Native 1672×941 output is preserved without upscaling; full-height images use aspect-aware responsive sizing, and project cards use a landscape ratio. Prompts are recorded in `docs/image-requests/`.
+
+The footer paper is a static “Contact us” card with illustrative studio details, without fields or submission controls. The separate `/contact` demo inquiry page remains available.
 
 ## More
 

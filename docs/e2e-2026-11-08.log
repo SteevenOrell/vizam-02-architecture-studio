@@ -1,0 +1,80 @@
+
+Running 38 tests using 2 workers
+
+(node:8692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\media-refinement.spec.ts:4:7 › hero and selected-work composition at 390px (14.2s)
+  ok  2 [chromium] › tests\e2e\media-refinement.spec.ts:4:7 › hero and selected-work composition at 1440px (19.6s)
+  ok  3 [chromium] › tests\e2e\site.spec.ts:7:7 › navigation › menu panel opens, traps focus, closes on Escape and returns focus (12.6s)
+  ok  4 [chromium] › tests\e2e\site.spec.ts:22:7 › navigation › menu closes with the Close button and with the backdrop (10.1s)
+  ok  5 [chromium] › tests\e2e\site.spec.ts:36:7 › navigation › menu links navigate and mark the current page (10.7s)
+  ok  6 [chromium] › tests\e2e\site.spec.ts:45:9 › navigation › unknown route /projects/does-not-exist returns a hard 404 (7.1s)
+  ok  7 [chromium] › tests\e2e\site.spec.ts:45:9 › navigation › unknown route /journal/does-not-exist returns a hard 404 (4.0s)
+  ok  8 [chromium] › tests\e2e\site.spec.ts:45:9 › navigation › unknown route /journal/%ZZ returns a hard 404 (3.5s)
+  ok  9 [chromium] › tests\e2e\site.spec.ts:56:7 › hero carousel › controls, keyboard and pause work (12.7s)
+  ok 10 [chromium] › tests\e2e\site.spec.ts:78:7 › hero carousel › autoplay advances when not hovered or focused (14.9s)
+  ok 12 [chromium] › tests\e2e\site.spec.ts:97:7 › projects › filtering updates the grid, count and URL (6.6s)
+  ok 13 [chromium] › tests\e2e\site.spec.ts:109:7 › projects › filter is read from the URL (1.6s)
+  ok 11 [chromium] › tests\e2e\site.spec.ts:85:7 › hero carousel › does not autoplay with reduced motion (11.4s)
+  ok 14 [chromium] › tests\e2e\site.spec.ts:114:7 › projects › cards in the grid are the same size (2.6s)
+  ok 16 [chromium] › tests\e2e\site.spec.ts:135:7 › projects › before/after slider works with the keyboard (12.4s)
+  ok 17 [chromium] › tests\e2e\site.spec.ts:149:7 › inquiry form (demo) › shows validation errors, then a clearly labelled demo success (12.2s)
+  ok 18 [chromium] › tests\e2e\site.spec.ts:175:7 › footer contact card › shows contact details without editable fields or form actions (2.1s)
+  ok 19 [chromium] › tests\e2e\site.spec.ts:187:7 › reduced motion › scroll sections render as static, readable content (4.5s)
+  ok 20 [chromium] › tests\e2e\site.spec.ts:198:7 › reduced motion › scroll sections are enhanced (pinned) when motion is allowed (4.0s)
+  ok 21 [chromium] › tests\e2e\site.spec.ts:206:9 › layout › no horizontal scroll at 300px (19.9s)
+  x  15 [chromium] › tests\e2e\site.spec.ts:121:7 › projects › gallery lightbox opens, browses with arrows and closes with Escape (1.0m)
+(node:7568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 22 [chromium] › tests\e2e\site.spec.ts:206:9 › layout › no horizontal scroll at 390px (19.0s)
+  ok 23 [chromium] › tests\e2e\site.spec.ts:206:9 › layout › no horizontal scroll at 768px (24.6s)
+  ok 25 [chromium] › tests\e2e\site.spec.ts:218:7 › layout › below 250px the layout locks at 500px and can be panned (11.7s)
+  ok 26 [chromium] › tests\e2e\site.spec.ts:258:7 › layout › the open menu and the gallery lightbox are also locked at 500px (7.7s)
+  ok 24 [chromium] › tests\e2e\site.spec.ts:206:9 › layout › no horizontal scroll at 1440px (37.6s)
+  ok 27 [chromium] › tests\e2e\site.spec.ts:274:7 › layout › journal cards are the same size (2.8s)
+  ok 28 [chromium] › tests\e2e\site.spec.ts:283:9 › layout › project and journal cards are equal-size at 390px (5.7s)
+  ok 29 [chromium] › tests\e2e\site.spec.ts:283:9 › layout › project and journal cards are equal-size at 768px (6.5s)
+  ok 31 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /projects (7.4s)
+  ok 30 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: / (13.9s)
+  ok 33 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /studio (6.6s)
+  ok 32 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /projects/mire-apartment (10.8s)
+  ok 34 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /services (7.5s)
+  ok 35 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /philosophy (8.6s)
+  ok 36 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /journal (7.5s)
+  ok 37 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /journal/notes-on-lime (9.3s)
+  ok 38 [chromium] › tests\e2e\site.spec.ts:299:9 › accessibility (axe, WCAG 2.x A/AA) › axe: /contact (6.0s)
+
+
+  1) [chromium] › tests\e2e\site.spec.ts:121:7 › projects › gallery lightbox opens, browses with arrows and closes with Escape
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Open image 2 of 4/ })
+
+
+      122 |     await page.goto('/projects/halden-house');
+      123 |     const opener = page.getByRole('button', { name: /Open image 2 of 4/ });
+    > 124 |     await opener.click();
+          |                  ^
+      125 |     const dialog = page.getByRole('dialog', { name: /image viewer/ });
+      126 |     await expect(dialog).toBeVisible();
+      127 |     await expect(dialog.getByText(/02 \/ 04/)).toBeVisible();
+        at C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio\tests\e2e\site.spec.ts:124:18
+
+    Error Context: test-results\site-projects-gallery-ligh-45c36-rows-and-closes-with-Escape-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\site-projects-gallery-ligh-45c36-rows-and-closes-with-Escape-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\site-projects-gallery-ligh-45c36-rows-and-closes-with-Escape-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests\e2e\site.spec.ts:121:7 › projects › gallery lightbox opens, browses with arrows and closes with Escape
+  37 passed (3.9m)
