@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import { MoveHorizontal } from 'lucide-react';
 import { useRef, useState } from 'react';
 import type { Img } from '@/content/types';

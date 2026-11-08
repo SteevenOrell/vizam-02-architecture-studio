@@ -1,0 +1,52 @@
+FAIL /philosophy: soft image (upscaled): material-spheres.0t37-lhox06ge.webp is 432px wide but shown 448px wide — replace it with a larger original
+FAIL /projects/halden-house: soft image (upscaled): halden-cover.086ma9_o22djz.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/halden-house: soft image (upscaled): halden-stair.3dy4syu168wqw.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/halden-house: soft image (upscaled): halden-bedroom.1y09tiq4umckz.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/halden-house: soft image (upscaled): material-spheres.0t37-lhox06ge.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/lumen-rooms: soft image (upscaled): lumen-suite.3go9uuclj3a2j.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/lumen-rooms: soft image (upscaled): lumen-reception.2hy45jp2gofxf.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/lumen-rooms: soft image (upscaled): lumen-pool.1z8c0rmu55nc8.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/saline-pavilion: soft image (upscaled): saline-cover.0dron6ce3_qtt.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/saline-pavilion: soft image (upscaled): saline-model.1fijvn8qhs5ct.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/saline-pavilion: soft image (upscaled): saline-stair.2250ky7wheyzp.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/casa-velo: soft image (upscaled): casa-velo-cover.0cj2uh_e08yyl.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/casa-velo: soft image (upscaled): casa-velo-facade.2q-yaaijhle1l.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/northfold-works: soft image (upscaled): northfold-cover.0mhq7usd_gqjq.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/northfold-works: soft image (upscaled): northfold-meeting.1hk_ry7xemapf.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/northfold-works: soft image (upscaled): northfold-windows.1dfc9af15l_7-.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/mire-apartment: soft image (upscaled): mire-after.36i5yg8kparec.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/mire-apartment: soft image (upscaled): mire-cover.0fm597kyyz176.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/mire-apartment: soft image (upscaled): mire-before.2xxxbrb0almx7.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/ombra-townhouse: soft image (upscaled): ombra-after.415-qu5m2d6cq.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/ombra-townhouse: soft image (upscaled): journal-blinds.0fzfcz5oy66hk.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/ombra-townhouse: soft image (upscaled): ombra-before.2_l1zxqi-yg8l.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/kiln-yard-studios: soft image (upscaled): kiln-loft.3zxkxkx0cu73a.webp is 1080px wide but shown 1354px wide — replace it with a larger original
+FAIL /projects/kiln-yard-studios: soft image (upscaled): material-shoji.14ly6y669lr0w.webp is 576px wide but shown 669px wide — replace it with a larger original
+FAIL /projects/kiln-yard-studios: soft image (upscaled): studio-blocks.00d7tfwz__1e9.webp is 576px wide but shown 669px wide — replace it with a larger original
+WARN /: 14 text element(s) under 12px
+WARN /: slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1602px wide for a 1440px slot (1.11x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: selected-coastal-villa-v3.1-pncode-xo89.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: selected-mire-v2.0q9_8ct93-hjt.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: home-scroll-study.2sm-qtc66qnol.webp is 800px wide for a 800px slot (1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: philosophy-window.0dhzqy2avkzoq.webp is 1602px wide for a 1354px slot (1.18x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: philosophy-light.38z1exnz-snla.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: philosophy-model.28i20r-3m3x1f.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: philosophy-stairs.3nj0d392tkals.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: material-shoji.14ly6y669lr0w.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: mire-after.36i5yg8kparec.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: ombra-after.415-qu5m2d6cq.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: kiln-loft.3zxkxkx0cu73a.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: journal-spiral.3yj96n8td3_yh.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: material-spheres.0t37-lhox06ge.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /: slightly soft on retina screens: journal-blinds.0fzfcz5oy66hk.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: 17 text element(s) under 12px
+WARN /projects: slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: slightly soft on retina screens: selected-coastal-villa-v3.1-pncode-xo89.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: slightly soft on retina screens: selected-mire-v2.0q9_8ct93-hjt.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: slightly soft on retina screens: lumen-suite.3go9uuclj3a2j.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: slightly soft on retina screens: saline-cover.0dron6ce3_qtt.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+WARN /projects: slightly soft on retina screens: casa-velo-cover.0cj2uh_e08yyl.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)
+
+22 routes: 25 FAIL, 129 WARN. Report: C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio\docs\qa\content\content-report.md

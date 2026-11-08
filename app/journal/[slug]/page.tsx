@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
@@ -37,8 +37,8 @@ export default async function PostPage({ params }: PageProps<'/journal/[slug]'>)
       </header>
 
       <div className="page-x mt-16">
-        <div className="relative aspect-[16/9] overflow-hidden bg-hairline">
-          <Image src={post.cover.src} alt={post.cover.alt} fill priority sizes="100vw" placeholder="blur" className="object-cover" />
+        <div className="relative mx-auto max-w-[1040px] aspect-[16/9] overflow-hidden bg-hairline">
+          <Image src={post.cover.src} alt={post.cover.alt} fill priority sizes="100vw" placeholder="blur" className="object-contain" />
         </div>
       </div>
 

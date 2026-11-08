@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import { ArrowLeft, ArrowRight, Expand, X } from 'lucide-react';
 import { useRef, useState } from 'react';
 import type { Img } from '@/content/types';
@@ -25,7 +25,7 @@ export function ProjectGallery({ images, title }: { images: Img[]; title: string
   // First image spans two columns; the rest are equal tiles.
   return (
     <>
-      <ul className="grid gap-4 md:grid-cols-2" data-testid="gallery">
+      <ul className="mx-auto grid max-w-[1040px] gap-4 md:grid-cols-2" data-testid="gallery">
         {images.map((image, i) => (
           <li key={i} className={i === 0 ? 'md:col-span-2' : ''}>
             <button
@@ -35,7 +35,7 @@ export function ProjectGallery({ images, title }: { images: Img[]; title: string
               aria-label={`Open image ${i + 1} of ${n} in full screen: ${image.alt}`}
             >
               <span className={`relative block ${i === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
-                <Image src={image.src} alt="" fill sizes={i === 0 ? '(min-width: 1024px) 75vw, 100vw' : '(min-width: 768px) 40vw, 100vw'} placeholder="blur" className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-arch)] group-hover:scale-[1.03]" />
+                <Image src={image.src} alt="" fill sizes={i === 0 ? '(min-width: 1100px) 1040px, 100vw' : '(min-width: 1100px) 512px, (min-width: 768px) 50vw, 100vw'} placeholder="blur" className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-arch)] group-hover:scale-[1.03]" />
               </span>
               <span className="meta absolute bottom-3 right-3 flex items-center gap-2 bg-plaster/90 px-2 py-1 text-graphite opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                 <Expand aria-hidden className="size-3" /> View

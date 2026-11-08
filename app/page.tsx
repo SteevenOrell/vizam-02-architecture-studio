@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { CinematicPhilosophy } from '@/components/home/CinematicPhilosophy';
 import { HeroCarousel } from '@/components/home/HeroCarousel';
+import { HomeStudy } from '@/components/home/HomeStudy';
 import { ScrollShowcase } from '@/components/home/ScrollShowcase';
 import { PostCard } from '@/components/journal/PostCard';
 import { ProjectCard } from '@/components/projects/ProjectCard';
@@ -11,7 +12,7 @@ import { posts } from '@/content/journal';
 import { featuredProjects, getProject, projects } from '@/content/projects';
 import { services } from '@/content/studio';
 
-const showcase = ['halden-house', 'lumen-rooms', 'saline-pavilion', 'northfold-works'].map((s) => getProject(s)!);
+const showcase = ['olive-court-house', 'mar-de-cal', 'mira-residence'].map((s) => getProject(s)!);
 
 export default function Home() {
   return (
@@ -74,6 +75,8 @@ export default function Home() {
         </ul>
       </section>
 
+      <HomeStudy />
+
       <CinematicPhilosophy />
 
       {/* (05) Index of work — equal cards, staggered columns */}
@@ -81,12 +84,12 @@ export default function Home() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <SectionLabel index="05" className="text-stone">Index</SectionLabel>
-            <h2 id="index-title" className="display-md mt-5">Selected projects <sup className="meta align-super text-stone">({projects.length})</sup></h2>
+            <h2 id="index-title" className="display-md mt-5">More from the studio <sup className="meta align-super text-stone">({projects.filter((p) => !showcase.includes(p) && !p.featured).length})</sup></h2>
           </div>
           <ArrowLink href="/projects">See all projects</ArrowLink>
         </div>
         <ul className="mt-14 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.slice(0, 6).map((p, i) => (
+          {projects.filter((p) => !showcase.includes(p) && !p.featured).map((p, i) => (
             <Reveal as="li" key={p.slug} delay={(i % 3) * 0.08} className={i % 3 === 1 ? 'lg:mt-24' : ''}>
               <ProjectCard project={p} index={i} />
             </Reveal>

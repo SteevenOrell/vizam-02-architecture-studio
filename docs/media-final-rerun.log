@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:27700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\media-refinement.spec.ts:4:7 › hero and selected-work composition at 390px (3.5s)
+  ok 2 [chromium] › tests\e2e\media-refinement.spec.ts:4:7 › hero and selected-work composition at 1440px (6.2s)
+  ok 3 [chromium] › tests\e2e\media-refinement.spec.ts:37:5 › home study begins with the home and reveals structure only while scrolling (2.9s)
+
+  3 passed (17.8s)

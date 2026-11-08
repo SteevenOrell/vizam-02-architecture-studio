@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import Link from 'next/link';
 import { formatDate } from '@/content/journal';
 import type { JournalPost } from '@/content/types';

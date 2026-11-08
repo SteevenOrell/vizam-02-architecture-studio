@@ -34,7 +34,13 @@ import journalFacade from '@/assets/images/journal-facade.webp';
 import journalSpiral from '@/assets/images/journal-spiral.webp';
 import journalRenovation from '@/assets/images/journal-renovation.webp';
 
+import homeStudy from '@/assets/images/home-scroll-study.webp';
+import gardenVilla from '@/assets/images/selected-garden-villa-v4.webp';
+import coastalVilla from '@/assets/images/selected-coastal-villa-v3.webp';
+import miraResidence from '@/assets/images/selected-mire-v2.webp';
+
 export const img = {
+  homeStudy, gardenVilla, coastalVilla, miraResidence,
   haldenCover, haldenBedroom, haldenStair,
   casaVeloCover, casaVeloFacade, casaVeloKitchen,
   mireAfter, mireBefore, mireCover,

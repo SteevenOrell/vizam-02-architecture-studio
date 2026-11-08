@@ -51,3 +51,10 @@ next-env.d.ts
 /docs/image-requests/returned/
 /docs/media-before.png
 /docs/screenshots/refined-*.png
+
+# Generated visual QA captures (reports remain reviewable).
+/docs/qa/content/shots/
+/docs/qa/content/sheets/
+
+/docs/qa/content-affected/shots/
+/docs/qa/content-affected/sheets/

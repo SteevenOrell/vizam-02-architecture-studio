@@ -116,3 +116,14 @@ The server on port 3102 was stopped afterwards.
 
 ### Verdict
 **Ready** for the PR as a concept and portfolio site. Before any real-client or production use, address recommendations 4 to 6 and get an independent security review.
+
+
+## 2026-11-08 follow-up: persistent navigation, mobile frames, selected projects and home study
+
+Implemented the user-approved four-image set. Navbar remains visible; phone heroes preserve complete landscape compositions. Selected Work has three distinct fictional studies, with all 11 projects in the catalogue. The home-first scroll sequence is an original labelled schematic assembly with chapter controls and reduced-motion content. Footer paper/contact presentation remains intact. Source-bounded optimized srcsets and accurate gallery sizes avoid advertising raster variants beyond their source.
+
+Validation: delivery quality gate **0 FAIL / 0 WARN**, with lint, types, 37 unit tests, 28-page production build, 39 E2E/axe tests, audit (zero reported vulnerabilities), working-tree/history scans, and live layout checks at 240/300/390/768/1440 on 13 representative routes covering all changed page types. An earlier live run covered all 22 sitemap routes. Final content audit covers all 22 routes: **0 FAIL / 149 WARN**; affected-route visual rerun covers 9 routes: **0 FAIL / 58 WARN**. Every distinct warning has a reason in [content-warning-dispositions.md](qa/content-warning-dispositions.md). Full quality report: [gate-report.md](qa/gate-report.md).
+
+Opened the full-site contact-sheet set and refreshed affected-route sheets. Corrected catalogue count/copy, navbar number contrast, mobile hero framing, repeated new-project cover-only gallery, source bounds and gallery size hints. Reviewed final new-project hero montage and motion/static fallbacks. Generated output is native 1672×941, not 4K; legacy high-density desktop limits and editorial microtype are recorded. Canonical article/project thumbnails and existing comparison/gallery reuse remain intentional. Earlier full failure evidence is retained under docs/qa/failures and build logs.
+
+Limits: local Chromium only; no real-device, other-browser, screen-reader or Core Web Vitals guarantee. The schematic is not a measured/photorealistic 3D model. No production deployment was requested.

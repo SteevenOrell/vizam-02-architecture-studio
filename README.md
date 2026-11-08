@@ -4,7 +4,7 @@
 This site is a portfolio concept built by VIZAM, not a real client commission. Projects, people, places and journal
 entries are fictional, and no real institution is represented.
 
-A premium, editorial site: a hero carousel, a scroll-driven project showcase, a cinematic philosophy section, filterable
+A premium, editorial site: a hero carousel, a distinct selected-project collection and a home-first scroll-driven architectural study, a cinematic philosophy section, filterable
 projects with gallery lightbox and before/after slider, a journal, and a demo inquiry form.
 
 ## Stack
@@ -72,3 +72,9 @@ The footer paper is a static “Contact us” card with illustrative studio deta
 ## More
 
 Report, security review and test results: [`docs/report.md`](docs/report.md).
+
+## Follow-up: navigation, mobile imagery and architectural study
+
+The header stays visible while scrolling. Phone heroes show a complete landscape photograph with the title and controls below it. Selected Work presents Olive Court House, Mar de Cal and Mira Residence; the Projects catalogue includes all 11 fictional projects. The approved home image opens an original scroll-driven schematic assembly sequence with seven chapter controls and a reduced-motion reading layout. This is a conceptual diagram, not an engineered or measured model of the generated home.
+
+`ResponsiveImage` uses Next.js `getImageProps` and its optimizer while capping advertised raster variants to the original image width. It omits blur placeholders because `getImageProps` does not remove them. The four approved source images retain native 1672×941 detail; none are upscaled. Native slot checks and final QA reports are under `docs/`.

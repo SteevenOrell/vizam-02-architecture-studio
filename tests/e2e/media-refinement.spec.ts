@@ -7,7 +7,13 @@ for (const width of [390, 1440]) {
     const hero = page.getByRole('region', { name: 'Featured projects' });
     await expect(hero).toBeVisible();
     await hero.getByRole('button', { name: 'Pause automatic slideshow' }).click();
-    await hero.getByRole('button', { name: /^Halden House/ }).click();
+    const slide = hero.locator('[aria-roledescription="slide"]');
+    for (let i = 0; i < 5; i++) {
+      const before = await slide.getAttribute('aria-label');
+      if (before === '1 of 5') break;
+      await hero.getByRole('button', { name: 'Previous project' }).click();
+      await expect(slide).not.toHaveAttribute('aria-label', before!);
+    }
     await expect(hero.locator('img')).toHaveCount(1);
     await expect(hero.locator('[aria-roledescription="slide"] > div')).toHaveCSS('opacity', '1');
     await hero.locator('img').first().evaluate(async (el: HTMLImageElement) => { await el.decode(); });
@@ -16,18 +22,30 @@ for (const width of [390, 1440]) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.screenshot({ path: `docs/screenshots/refined-${width}-hero.png` });
 
-    const stage = page.locator('[data-enhanced="true"]').filter({ has: page.locator('[data-frame]') });
-    await expect(stage).toHaveCount(1);
-    const top = await stage.evaluate(el => el.getBoundingClientRect().top + window.scrollY);
-    await page.evaluate(y => window.scrollTo(0, y), top + 80);
-    const frame = stage.locator('[data-frame]').first();
-    await expect(frame).toHaveCSS('clip-path', 'inset(0%)');
-    await expect(stage.locator('[data-caption]').first()).toBeVisible();
-    expect(await frame.locator('img').evaluate(el => getComputedStyle(el).objectFit)).toBe('cover');
-    await frame.locator('img').evaluate(async (el: HTMLImageElement) => { await el.decode(); });
+    const selected = page.locator('[data-selected-project]').first();
+    await selected.scrollIntoViewIfNeeded();
+    await expect(selected.getByRole('heading')).toContainText('Olive Court House');
+    await selected.locator('img').evaluate(async (el: HTMLImageElement) => { await el.decode(); });
+    await expect(page.locator('header').first()).toBeInViewport();
     await page.screenshot({ path: `docs/screenshots/refined-${width}-showcase.png` });
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
     await expect(page.getByRole('region', { name: 'Contact us', exact: true })).toBeVisible();
     await page.screenshot({ path: `docs/screenshots/refined-${width}-footer.png` });
   });
 }
+
+test('home study begins with the home and reveals structure only while scrolling', async ({ page }) => {
+  await page.goto('/');
+  const study = page.locator('[data-study-motion="true"]');
+  await expect(study).toHaveCount(1);
+  const top = await study.evaluate(el => el.getBoundingClientRect().top + window.scrollY - 72);
+  await page.evaluate(y => window.scrollTo(0, y), top);
+  await expect(study.locator('[data-study-photo]')).toHaveCSS('opacity', '1');
+  await study.getByRole('button', { name: 'Structure', exact: true }).click();
+  await expect(study.locator('[data-study-diagram]')).toHaveCSS('visibility', 'visible');
+  await expect(study.locator('[data-study-photo]')).toHaveCSS('opacity', '0');
+  await expect(page.locator('header').first()).toBeInViewport();
+  await page.screenshot({ path: 'docs/screenshots/refined-structure.png' });
+  await study.getByRole('button', { name: 'A place to live', exact: true }).click();
+  await expect(study.getByRole('heading', { name: 'A place to live', exact: true })).toBeVisible();
+});

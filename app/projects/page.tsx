@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <div className="pb-32">
-      <PageIntro index="01" label="Projects" title="Work, filed by discipline." lead="Eight projects across five disciplines. Filter the index or open a project for drawings of light, material and time." />
+      <PageIntro index="01" label="Projects" title="Work, filed by discipline." lead={`${projects.length} fictional projects across five disciplines. Filter the index or explore studies of light, material and time.`} />
       <Suspense fallback={<ProjectIndex projects={projects} />}>
         <ProjectIndexFromUrl projects={projects} />
       </Suspense>

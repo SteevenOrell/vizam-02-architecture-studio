@@ -1,0 +1,32 @@
+
+> vizam-02-architecture-studio@0.1.0 build
+> next build
+
+▲ Next.js 16.4.5 (Turbopack)
+✓ Running next.config.ts took 314ms
+- Cache Components enabled
+- Partial Prefetching enabled
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 9.3s
+  Running TypeScript ...
+  Finished TypeScript in 13.5s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/25) ...
+  Generating static pages using 7 workers (6/25)
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'slug')
+    at <unknown> (components\home\ScrollShowcase.tsx:17:55)
+    at Array.map (<anonymous>)
+    at k (components\home\ScrollShowcase.tsx:16:21)
+  15 |         <ol className="mt-16 space-y-20 md:space-y-28">
+  16 |           {projects.map((p, i) => (
+> 17 |             <li key={p.slug} data-selected-project={p.slug}>
+     |                                                       ^
+  18 |               <Reveal>
+  19 |                 <div className="relative aspect-[1672/941] overflow-hidden bg-night">
+  20 |                   <Image src={p.cover.src} alt={p.cover.alt} fill sizes="(min-width: 1100px) 1040px, 94vw" placeholder="blur" className="object-contain" /> {
+  digest: '1000679474'
+}
+Export encountered an error on /page: /, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null

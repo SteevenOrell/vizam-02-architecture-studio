@@ -1,0 +1,9 @@
+PASS lint - npm run lint
+PASS typecheck - npm run typecheck
+PASS unit - npm run test
+PASS build - npm run build
+FAIL e2e - npm run test:e2e exited 1
+PASS npm audit (production deps) - prod: 0 (high/critical 0); all deps: 0
+PASS tracked private files (.env, .claude, CLAUDE.md, keys)
+PASS secret scan (working tree)
+PASS secret scan (full git history)

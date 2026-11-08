@@ -17,18 +17,12 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
-  const lastY = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > window.innerHeight * 0.75);
-      // Hide while reading downwards, reveal on any upward scroll.
-      setHidden(y > 480 && y > lastY.current + 4);
-      if (y < lastY.current - 4 || y <= 480) setHidden(false);
-      lastY.current = y;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -52,7 +46,7 @@ export function Header() {
           'is-fixed fixed inset-x-0 top-0 z-50 transition-[transform,background-color,color] duration-500 ease-[var(--ease-arch)]',
           light ? 'on-dark text-paper' : 'text-graphite',
           scrolled && !light ? 'bg-plaster/85 backdrop-blur-md' : 'bg-transparent',
-          hidden && !open ? '-translate-y-full' : 'translate-y-0',
+          'translate-y-0',
         ].join(' ')}
       >
         {light && (
@@ -75,7 +69,7 @@ export function Header() {
                       aria-current={active ? 'page' : undefined}
                       className="group flex items-start gap-1 text-[0.9375rem] tracking-tight"
                     >
-                      <span className="meta mt-[-0.15rem] text-[0.5625rem] opacity-60">{pad2(i + 1)}</span>
+                      <span className="meta mt-[-0.15rem] text-xs">{pad2(i + 1)}</span>
                       <span className={`link-underline ${active ? 'bg-[length:100%_1px]' : ''}`}>{item.label}</span>
                     </Link>
                   </li>
