@@ -6,12 +6,12 @@ Last updated: 2026-11-08 (America/Toronto) by Codex
 - Current assignment: improve poor images using realistic generation matched to section copy; correct image sizing/cropping; hide the hero scrollbar; fix first selected-work animation; replace writable footer paper with static Contact us content.
 - Stack preserved: Next.js 16.4.5 App Router, React 19, TypeScript, Tailwind 4, GSAP, Motion. Local typed content; no CMS or new services.
 - References: docs/reference-analysis.md, docs/plan.md. User's current generation request supersedes the old handoff's no-AI-images restriction. No voice/video requested or generated.
-- Current phase: implementation and verification complete; user authorized commit, push and merge on 2026-11-08.
+- Current phase: implementation and verification complete; delivery through PR #3, authorized by the user on 2026-11-08.
 
 ## Repository URL/path, branch/worktree, last commit, uncommitted changes
 - Assigned checkout: C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio; remote origin (private).
 - Actual branch: vizam/initial-build. Verified baseline: ef672af (footer writable paper form); origin/main at ea0f1a5 has identical project content. Delivery commits follow this baseline (use git log for exact SHAs).
-- Checkout was clean at takeover. All current changes belong to this assignment. User authorized push and merge; no deployment requested.
+- Checkout was clean at takeover. All current changes belong to this assignment. Feature update pushed to origin/vizam/initial-build and PR #3 created. User authorized merge; no deployment requested.
 - The old .claude worktree exists at d446620; it was not used or modified. Previous handoff branch/commit/pending-delivery claims were stale.
 
 ## Completed work and changed files
@@ -26,7 +26,8 @@ Last updated: 2026-11-08 (America/Toronto) by Codex
 - Visually inspected generated contact sheet and hero/showcase/footer screenshots at 390/1440 px. Contact sheet: docs/screenshots/refined-media-contact-sheet.webp.
 
 ## Outstanding tasks and next bounded slice
-- No requested implementation remains. Deliver this approved update via a new pull request into main.
+- No requested implementation remains. Delivery commit: e6cd31d.
+- Delivery record: https://github.com/SteevenOrell/vizam-02-architecture-studio/pull/3 (main target). Consult this PR for authoritative merge state.
 - Push and merge authorized by the user. No deployment requested.
 
 ## Commands run, test/build outcomes, failures
@@ -54,4 +55,4 @@ Last updated: 2026-11-08 (America/Toronto) by Codex
 ## Dependencies, blockers, and decisions needing approval
 - No new dependencies or paid API usage. Native image generation used existing allowance.
 - Preview port 3102 only. Session dev server stopped; Playwright owns and stops its production preview. Old generated build/cache directories preserved under .next (ignored).
-- No approval pending for local edits. Clean production build and focused production browser verification passed.
+- No approval pending. Clean production build and focused production browser verification passed; push and merge authorized.
