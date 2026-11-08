@@ -14,6 +14,8 @@ export const DISCIPLINE_LABEL: Record<Discipline, string> = {
 export interface Img {
   src: StaticImageData;
   alt: string;
+  /** Optional CSS object-position for cover crops (keeps the key subject framed on portrait screens). */
+  focus?: string;
 }
 
 export interface Project {

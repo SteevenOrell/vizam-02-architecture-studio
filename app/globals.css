@@ -209,14 +209,6 @@
   }
 }
 
-/* A complete landscape photograph on phones, with content below instead of over-cropping. */
-@media (max-width: 767px) {
-  [aria-roledescription="carousel"] { height: auto; min-height: 0; padding-top: 4.5rem; }
-  [aria-roledescription="carousel"] > div:first-child { position: relative; aspect-ratio: 1672 / 941; z-index: 0; }
-  [aria-roledescription="carousel"] > div:first-child > div[aria-hidden] { display: none; }
-  [aria-roledescription="carousel"] [aria-roledescription="slide"] { position: relative; bottom: auto; padding-block: 2rem; }
-  [aria-roledescription="carousel"] > div:last-child { position: relative; }
-}
 .study-controls { display: none; }
 [data-study-motion="true"] .study-controls { display: flex; }
 [data-study-motion="true"] .study-static { display: none; }
@@ -225,11 +217,5 @@
 .home-study .study-visual { max-width: 800px; margin-inline: auto; }
 @media (max-height: 760px) and (min-width: 768px) {
   .home-study .study-visual { max-width: 560px; }
-}
-@media (max-width: 767px) {
-  .project-hero { display: block; height: auto; min-height: 0; padding-top: 4.5rem; }
-  .project-hero > img { position: relative !important; inset: auto !important; width: 100% !important; height: auto !important; object-fit: contain; }
-  .project-hero > div[aria-hidden] { display: none; }
-  .project-hero > div.relative { padding-block: 2rem; }
 }
 section { scroll-margin-top: 5.5rem; }

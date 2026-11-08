@@ -38,7 +38,7 @@ export default async function PostPage({ params }: PageProps<'/journal/[slug]'>)
 
       <div className="page-x mt-16">
         <div className="relative mx-auto max-w-[1040px] aspect-[16/9] overflow-hidden bg-hairline">
-          <Image src={post.cover.src} alt={post.cover.alt} fill priority sizes="100vw" placeholder="blur" className="object-contain" />
+          <Image src={post.cover.src} alt={post.cover.alt} fill priority sizes="(min-width: 1100px) 1040px, 100vw" placeholder="blur" className="object-cover" />
         </div>
       </div>
 

@@ -44,22 +44,21 @@ export function Header() {
         data-tone={light ? 'light' : 'dark'}
         className={[
           'is-fixed fixed inset-x-0 top-0 z-50 transition-[transform,background-color,color] duration-500 ease-[var(--ease-arch)]',
-          light ? 'on-dark text-paper' : 'text-graphite',
+          light ? 'on-dark text-paper [text-shadow:0_1px_14px_rgb(0_0_0/0.5)]' : 'text-graphite',
           scrolled && !light ? 'bg-plaster/85 backdrop-blur-md' : 'bg-transparent',
           'translate-y-0',
         ].join(' ')}
       >
         {light && (
-          <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/45 to-transparent" />
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/75 via-black/40 via-60% to-transparent" />
         )}
         <div className="page-x relative flex h-[4.5rem] items-center justify-between gap-6">
-          <Link href="/" className="group flex items-baseline gap-2" aria-label="Ostrel Atelier, home">
-            <Wordmark className="h-[1.35rem] w-auto" />{' '}
-            <span className="meta hidden opacity-70 sm:inline">Atelier</span>
+          <Link href="/" className="group flex items-center" aria-label="Ostrel Atelier, home">
+            <Wordmark className="h-[1.35rem] w-auto" />
           </Link>
 
           <nav aria-label="Primary" className="hidden xl:block">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-10">
               {nav.slice(0, 5).map((item, i) => {
                 const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
                 return (
@@ -67,9 +66,9 @@ export function Header() {
                     <Link
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
-                      className="group flex items-start gap-1 text-[0.9375rem] tracking-tight"
+                      className="group flex items-baseline gap-2 text-[0.9375rem] tracking-tight"
                     >
-                      <span className="meta mt-[-0.15rem] text-xs">{pad2(i + 1)}</span>
+                      <span aria-hidden className="meta text-[0.625rem] tabular-nums opacity-75">{pad2(i + 1)}</span>
                       <span className={`link-underline ${active ? 'bg-[length:100%_1px]' : ''}`}>{item.label}</span>
                     </Link>
                   </li>

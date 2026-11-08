@@ -34,15 +34,15 @@ export default async function ProjectPage({ params }: PageProps<'/projects/[slug
   return (
     <article>
       {/* Hero */}
-      <header className="project-hero on-dark relative mx-auto max-w-[1040px] flex h-[75svh] min-h-[28rem] md:h-[85svh] items-end overflow-hidden bg-night text-paper">
-        <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="(min-width: 1100px) 1040px, 100vw" placeholder="blur" className="object-contain md:object-cover" />
+      <header className="project-hero on-dark relative isolate flex min-h-[max(80svh,30rem)] items-end overflow-hidden bg-night text-paper">
+        <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="(max-aspect-ratio: 16/9) 178svh, 100vw" placeholder="blur" className="object-cover" style={{ objectPosition: p.cover.focus ?? '50% 50%' }} />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/35" />
-        <div className="page-x relative w-full pb-12">
+        <div className="page-x relative w-full pb-12 pt-28">
           <Link href="/projects" className="meta inline-flex items-center gap-2 text-paper/85 hover:text-paper">
             <ArrowLeft aria-hidden className="size-3.5" /> All projects
           </Link>
           <p className="meta mt-8 text-paper/85">{DISCIPLINE_LABEL[p.discipline]} · {p.location} · {p.year}</p>
-          <h1 className="display-xl mt-3 [text-wrap:balance]">{p.title}</h1>
+          <h1 className="display-xl mt-3 text-[clamp(3rem,min(13vw,22svh),13rem)] [text-wrap:balance]">{p.title}</h1>
         </div>
       </header>
 
