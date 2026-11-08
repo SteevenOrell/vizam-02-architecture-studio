@@ -1,73 +1,57 @@
-# Agent handoff — VIZAM concept 02: Ostrel Atelier (architecture & interior studio)
+# Agent handoff — Ostrel Atelier / VIZAM 02
+Last updated: 2026-11-08 (America/Toronto) by Codex
 
-_Last updated: 2026-11-06 by the slice D agent_
+## Project goal, approved scope, design references, and tech stack
+- Fictional architecture/interior studio portfolio. Keep the VIZAM concept disclaimer.
+- Current assignment: improve poor images using realistic generation matched to section copy; correct image sizing/cropping; hide the hero scrollbar; fix first selected-work animation; replace writable footer paper with static Contact us content.
+- Stack preserved: Next.js 16.4.5 App Router, React 19, TypeScript, Tailwind 4, GSAP, Motion. Local typed content; no CMS or new services.
+- References: docs/reference-analysis.md, docs/plan.md. User's current generation request supersedes the old handoff's no-AI-images restriction. No voice/video requested or generated.
+- Current phase: implementation and verification complete; user authorized commit, push and merge on 2026-11-08.
 
-## Objective
-Premium, visually experimental architecture & interior design studio site for a fictional studio ("Ostrel Atelier"),
-built as a VIZAM portfolio concept. Footer and README must say "VIZAM concept project — fictional studio".
+## Repository URL/path, branch/worktree, last commit, uncommitted changes
+- Assigned checkout: C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio; remote origin (private).
+- Actual branch: vizam/initial-build. Verified baseline: ef672af (footer writable paper form); origin/main at ea0f1a5 has identical project content. Delivery commits follow this baseline (use git log for exact SHAs).
+- Checkout was clean at takeover. All current changes belong to this assignment. User authorized push and merge; no deployment requested.
+- The old .claude worktree exists at d446620; it was not used or modified. Previous handoff branch/commit/pending-delivery claims were stale.
 
-## Repository
-- Main checkout: `C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio`   Remote: `origin` (private GitHub repo)
-- Build worktree (work here): `C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio\.claude\worktrees\agent-a6a10b538589455a4`, branch `worktree-agent-a6a10b538589455a4`
-- Commit: `9cad821` (slice A; previously `753c491`) (feat: all pages, project filtering, gallery lightbox, before/after slider, demo inquiry form). Target branch `vizam/initial-build` still at `12f9cd9`.
-- `.claude/` is ignored (`.git/info/exclude` and `.gitignore`); never commit it. Local `CLAUDE.md` stays git-excluded (rules: main checkout `CLAUDE.md`, read it from there).
+## Completed work and changed files
+- Replaced 11 WebP assets under assets/images/: halden-cover, lumen-suite, saline-cover, northfold-cover, casa-velo-cover, philosophy-window/light/model/stairs, material-shoji, mire-cover.
+- Built-in image generation; requested 2560×1440 but actual native output is 1672×941. Kept native dimensions, WebP quality 88, no upscaling. Originals ignored under docs/image-requests/returned/. Briefs/prompts: docs/image-requests/<asset>.md; actual sizes/origin: assets/images/CREDITS.md. No new stock downloads.
+- HeroCarousel: opacity transitions without magnification. Aspect-aware sizes for full-height images avoid loading narrow mobile images and then enlarging them to cover a tall viewport.
+- ScrollShowcase: first frame/caption immediately readable at full size; removed small inset opening and all image scaling, retained subsequent wipes and reduced-motion list. CinematicPhilosophy retains letterbox/chapter transitions without image magnification.
+- app/globals.css: hidden browser scrollbar while preserving wheel/touch/keyboard scrolling and the existing tiny-screen horizontal pan behavior.
+- ProjectCard: landscape 3:2 frames preserve more architecture and equal card sizing.
+- FooterNote: server-rendered static Contact us paper card. No fields, actions, submission, storage or client state. Illustrative contact details and concept disclaimer retained. Separate /contact demo inquiry unchanged.
+- Updated alt descriptions, README, credits. Regression tests: static footer expectations plus media-refinement.spec.ts at 390/1440 px.
+- Visually inspected generated contact sheet and hero/showcase/footer screenshots at 390/1440 px. Contact sheet: docs/screenshots/refined-media-contact-sheet.webp.
 
-## Approved decisions
-- Brief: `C:\Users\SteevenWemin\Documents\Projects\vizam-concepts-brief.md` (Project 02 + orchestrator decisions). Visual direction pre-approved ("follow the brief").
-- Stack: Next.js 16 App Router, TypeScript, Tailwind, GSAP ScrollTrigger, Motion, Lucide, RHF + Zod, next/image, Metadata API; local structured content in `content/` (no Sanity).
-- Design references analysed in `docs/reference-analysis.md`; plan in `docs/plan.md`.
-- Scroll-driven animation in exactly two sections (home scroll showcase + cinematic philosophy); full reduced-motion fallbacks.
-- Inquiry form: server-side Zod, honeypot, rate limit, labelled demo submission; nothing stored or logged.
-- Photos: Unsplash/Pixabay/Envato allowed (private repo); WebP only; credits in `assets/images/CREDITS.md`. No video, voice or AI images.
-- Dev/preview port 3102 (never 3000/3001, never stop other servers).
-- Work in slices: one subagent run per slice, starting from this file; update this file at the end of each slice.
-- After checks pass: orchestrator fast-forwards `vizam/initial-build`, pushes it and opens a PR into `main` (no merge, no push to main, no deploy).
+## Outstanding tasks and next bounded slice
+- No requested implementation remains. Deliver this approved update via a new pull request into main.
+- Push and merge authorized by the user. No deployment requested.
 
-## Done
-- Committed through `753c491`: scaffold (Next.js 16, security headers), WebP photos + credits, content/lib (schema, rate limit, filter), layout/header/menu/footer, hero carousel, the two scroll sections, all 8 page types, project filtering, gallery lightbox, before/after slider, demo inquiry form.
-- Slice A (QA infra) done: lumen-cover removal committed (no references left); Vitest + Playwright config, e2e spec, screenshot script committed; `test-results/` and `playwright-report/` git-ignored; 12 new lib unit tests (`tests/unit/lib-edge-cases.test.ts`); `playwright-core` pinned to 1.64.0 via `overrides` (axe pulled 1.65 and broke typecheck); stale eslint-disable removed.
-- Slice B (browser QA) done: e2e + axe green (33 tests); axe fixes (carousel rail buttons and home link accessible names now match visible text); new e2e for the <250 px lock (incl. open menu and lightbox), equal cards in project and journal grids at 390/768/1440, menu close button/backdrop; `docs/screenshots/` regenerated (47 WebP, about 1 MB: all pages at 240/390/768/1440, open menu, filter state, showcase, 240 px locked and panned) and committed.
-
-- Slice C done: hard 404 via proxy.ts + content/slugs.ts (Cache Components rejects dynamicParams=false); e2e asserts 404 for project and journal; 1440 showcase screenshot retaken; README.md written; full gate green (see below). docs/report.md committed later (b635457).
-- Slice D done (independent security review and QA sign-off, verdict READY):
-  - fixed the 500 on malformed percent-encoded slugs in proxy.ts (e7f902e);
-  - the rate limiter now evicts the least recently seen key (0243799);
-  - dropped the deprecated interest-cohort token (f42e370).
-  - Recommendations, not changed: use a trusted IP header and a shared rate-limit store, use CSP nonces, and add HSTS when not hosted on Vercel. Details are in the "Slice D" section of docs/report.md.
-
-## Pending (priority order)
-1. Slice A (QA infra): done.
-2. Slice B: Playwright e2e + axe green; verify the <250 px lock (`#root`, fixed elements 500px with `right:auto`, `html { overflow-x: auto }`); no horizontal scroll from 300 px; equal-size cards; full screenshot set at 240/390/768/1440 as compact WebP.
-3. Slice C (delivery): `README.md`, `docs/report.md` (incl. 80–120 word case-study blurb), `npm audit`, `npm ci` from lockfile.
-4. Slice D (Opus): QA/security review: done (ready).
-5. Orchestrator: verify, fast-forward `vizam/initial-build`, push, open PR.
-
-## Last verified checks (2026-11-06, slice D, after fixes)
-| Check | Command | Result |
+## Commands run, test/build outcomes, failures
+| Command | Outcome | When |
 |---|---|---|
-| Install | npm ci | pass, 0 vulnerabilities |
-| Lint | npm run lint | pass |
-| Typecheck | npm run typecheck | pass |
-| Unit | npm test | pass, 5 files, 36 tests |
-| Build | npm run build | pass, 25 static pages, Proxy listed |
-| E2E + axe | npm run test:e2e -- --workers=2 (prod build, port 3102) | pass, 35 of 35; server stopped afterwards |
-| Audit | npm audit | found 0 vulnerabilities |
+| git status --short --branch; git log -5 --oneline; git worktree list | Clean assigned branch verified at takeover | 2026-11-08 |
+| npm run lint | Pass | 2026-11-08 |
+| npm run typecheck | Pass | 2026-11-08 |
+| npm test | Pass, 5 files / 36 tests | 2026-11-08 |
+| npm audit --json | Pass after allowing registry access; zero reported vulnerabilities; docs/audit-2026-11-08.json | 2026-11-08 |
+| npm run build | PASS clean production build, all 25 static pages. Initial font-fetch/network and stale generated CSS-worker failures resolved by network access and preserving/renaming old .next/build and .next/cache/turbopack. Evidence: docs/build-clean-2026-11-08.log; earlier failures preserved in docs/build-2026-11-08.log and docs/turbopack-failure-2026-11-08.log | 2026-11-08 |
+| npx playwright test --workers=2 | Dev suite: 37/38 passed, gallery initially hit a transient JSON parsing error during compilation. Targeted gallery rerun: PASS. Error context preserved in docs/gallery-dev-failure-2026-11-08.md; full logs docs/e2e-2026-11-08.log and docs/e2e-gallery-rerun-2026-11-08.log | 2026-11-08 |
+| npx playwright test --workers=2 --grep "composition|footer contact|gallery lightbox opens|axe: /$|scroll sections" | PASS 7/7 against production: 390/1440 images/scrollbar, footer, gallery, motion/static fallbacks, home WCAG A/AA. docs/e2e-production-2026-11-08.log | 2026-11-08 |
+| npx playwright test tests/e2e/media-refinement.spec.ts --workers=2 | PASS 2/2 production checks; final settled-slide desktop/mobile screenshots refreshed. docs/e2e-media-final-2026-11-08.log | 2026-11-08 |
+| git diff --check | Pass (line-ending notices only) | 2026-11-08 |
 
-## Known issues and risks
-- The previous build agent stopped twice on the 5-hour usage limit; its last uncommitted changes are unverified.
-- `AGENTS.md` is generated by `next dev`; keep it committed.
-- Never leave a dev server running on 3102 after a slice.
+## Security findings and open risks
+- Dependency audit: zero reported vulnerabilities; this is not a guarantee of application security.
+- No new dependencies, external runtime image URLs, environment variables or data submission paths added. Footer has no editable controls or network functionality.
+- Existing demo inquiry security architecture unchanged (Zod, honeypot, rate limit, no delivery/storage). Existing CSP tradeoffs remain documented in docs/report.md.
+- Native generated resolution is 1672×941, not 2560×1440 or 4K. Large/high-density screens remain limited by native detail; do not upscale files to imply more detail.
+- Dev preview emits existing Next instant-shell URL-data diagnostics on project/journal detail routes. No route architecture changes made in this visual refinement.
+- Original stock before/after examples remain illustrative comparisons of different photographs.
 
-- Unknown slugs return a real 404 through proxy.ts (slug lists in content/slugs.ts, kept in sync by tests/unit/slugs.test.ts).
-- At <250 px the fixed header is 500 px wide and fixed elements do not pan on desktop browsers, so its Menu button is off-screen there (works on touch devices that pan the visual viewport). This follows the VIZAM rule as written.
-- Running the e2e is slow on this machine (3-9 min); use `--workers=2`. Other agents share `%TEMP%`: use unique log file names.
-
-## Setup
-- Install / run: `npm ci`, `npm run dev` (port 3102), `npm run build`, `npm start` (port 3102), `npm test`, `npm run test:e2e`.
-- Env var names: none required. Media keys are read only by the site-media scripts; never copy them into the repo.
-
-## Next step
-Orchestrator: fast-forward `vizam/initial-build` to this branch, push it and open the PR into `main` (no merge, no push to main, no deploy).
-
-## Waiting for approval
-- None blocking. Vercel preview needs Steeven to link the project; production deploy needs his approval.
+## Dependencies, blockers, and decisions needing approval
+- No new dependencies or paid API usage. Native image generation used existing allowance.
+- Preview port 3102 only. Session dev server stopped; Playwright owns and stops its production preview. Old generated build/cache directories preserved under .next (ignored).
+- No approval pending for local edits. Clean production build and focused production browser verification passed.

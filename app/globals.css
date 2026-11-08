@@ -23,9 +23,13 @@
   html {
     /* Lets visitors pan the 500 px locked layout below 250 px (see the media query at the end). */
     overflow-x: auto;
+    /* Preserve scrolling without a rail beside the full-bleed hero. */
+    scrollbar-width: none;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
   }
+
+  html::-webkit-scrollbar { display: none; }
 
   body {
     background: var(--color-plaster);

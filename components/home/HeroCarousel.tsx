@@ -101,17 +101,17 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
           <motion.div
             key={current.slug}
             className="absolute inset-0"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.06 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ opacity: { duration: reduce ? 0.2 : 1.1, ease: 'easeInOut' }, scale: { duration: 6, ease: 'easeOut' } }}
+            transition={{ opacity: { duration: reduce ? 0.2 : 1.1, ease: 'easeInOut' } }}
           >
             <Image
               src={current.cover.src}
               alt=""
               fill
               priority={index === 0}
-              sizes="100vw"
+              sizes="(max-aspect-ratio: 16/9) 178svh, 100vw"
               placeholder="blur"
               className="object-cover"
             />

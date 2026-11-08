@@ -46,3 +46,8 @@ next-env.d.ts
 # test output
 /test-results/
 /playwright-report/
+
+# Full-resolution generated originals; only optimized derivatives ship.
+/docs/image-requests/returned/
+/docs/media-before.png
+/docs/screenshots/refined-*.png

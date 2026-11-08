@@ -38,9 +38,9 @@ export function CinematicPhilosophy({ label = '(04) Philosophy', headingId = 'ph
       const chIndicator = el.querySelector<HTMLElement>('[data-ch-indicator]');
 
       gsap.set(bars, { scaleY: 1 });
-      gsap.set(lead, { scale: 1.18 });
+
       gsap.set(words, { opacity: 0.14 });
-      gsap.set(chImgs, { autoAlpha: 0, scale: 1.08 });
+      gsap.set(chImgs, { autoAlpha: 0 });
       gsap.set(chText, { autoAlpha: 0, y: 40 });
       gsap.set(chIndicator, { autoAlpha: 0 });
 
@@ -63,7 +63,6 @@ export function CinematicPhilosophy({ label = '(04) Philosophy', headingId = 'ph
 
       // Act 1 — the letterbox opens and the statement brightens word by word.
       tl.to(bars, { scaleY: 0.28, duration: 2 }, 0)
-        .to(lead, { scale: 1, duration: 2 }, 0)
         .to(words, { opacity: 1, stagger: 1.4 / words.length, duration: 0.3 }, 0.1);
 
       // Act 2 — chapters cross-dissolve.
@@ -72,7 +71,7 @@ export function CinematicPhilosophy({ label = '(04) Philosophy', headingId = 'ph
         .to(chIndicator, { autoAlpha: 1, duration: 0.3 }, 2);
       for (let i = 0; i < n; i++) {
         const at = 2 + i;
-        tl.to(chImgs[i], { autoAlpha: 1, scale: 1, duration: 0.6 }, at)
+        tl.to(chImgs[i], { autoAlpha: 1, duration: 0.6 }, at)
           .to(chText[i], { autoAlpha: 1, y: 0, duration: 0.35 }, at + 0.2);
         if (i < n - 1) {
           tl.to(chText[i], { autoAlpha: 0, y: -30, duration: 0.25 }, at + 0.8)
@@ -96,12 +95,12 @@ export function CinematicPhilosophy({ label = '(04) Philosophy', headingId = 'ph
           {/* Lead image inside a letterbox */}
           <div className={`relative aspect-[16/9] overflow-hidden group-data-[enhanced=true]/cine:absolute group-data-[enhanced=true]/cine:inset-0 group-data-[enhanced=true]/cine:aspect-auto`}>
             <div data-lead-img className="absolute inset-0 will-change-transform">
-              <Image src={img.philosophyWindow} alt="Empty room opening onto a misty landscape through a full-height window" fill sizes="100vw" placeholder="blur" className="object-cover" />
+              <Image src={img.philosophyWindow} alt="Empty room opening onto a misty landscape through a full-height window" fill sizes="(max-aspect-ratio: 16/9) 178svh, 100vw" placeholder="blur" className="object-cover" />
             </div>
             <div aria-hidden className="absolute inset-0 bg-black/45" />
             {principles.map((p) => (
               <div key={p.index} data-ch-img className={`absolute inset-0 hidden group-data-[enhanced=true]/cine:block`}>
-                <Image src={p.image.src} alt="" fill sizes="100vw" className="object-cover" />
+                <Image src={p.image.src} alt="" fill sizes="(max-aspect-ratio: 16/9) 178svh, 100vw" className="object-cover" />
                 <div aria-hidden className="absolute inset-0 bg-black/55" />
               </div>
             ))}

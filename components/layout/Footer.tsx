@@ -45,7 +45,7 @@ export function Footer() {
             <p className="mt-6 text-stone-light">Mon–Fri, 09:00–18:00 · Visits by appointment</p>
           </div>
 
-          <aside aria-label="Colophon" className="relative min-w-0 md:col-span-2 lg:col-span-5 lg:pl-8">
+          <aside aria-label="Contact card" className="relative min-w-0 md:col-span-2 lg:col-span-5 lg:pl-8">
             <FooterNote year={year} />
           </aside>
         </div>
