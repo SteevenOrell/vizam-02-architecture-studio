@@ -33,19 +33,3 @@ for (const width of [390, 1440]) {
     await page.screenshot({ path: `docs/screenshots/refined-${width}-footer.png` });
   });
 }
-
-test('home study begins with the home and reveals structure only while scrolling', async ({ page }) => {
-  await page.goto('/');
-  const study = page.locator('[data-study-motion="true"]');
-  await expect(study).toHaveCount(1);
-  const top = await study.evaluate(el => el.getBoundingClientRect().top + window.scrollY - 72);
-  await page.evaluate(y => window.scrollTo(0, y), top);
-  await expect(study.locator('[data-study-photo]')).toHaveCSS('opacity', '1');
-  await study.getByRole('button', { name: 'Structure', exact: true }).click();
-  await expect(study.locator('[data-study-diagram]')).toHaveCSS('visibility', 'visible');
-  await expect(study.locator('[data-study-photo]')).toHaveCSS('opacity', '0');
-  await expect(page.locator('header').first()).toBeInViewport();
-  await page.screenshot({ path: 'docs/screenshots/refined-structure.png' });
-  await study.getByRole('button', { name: 'A place to live', exact: true }).click();
-  await expect(study.getByRole('heading', { name: 'A place to live', exact: true })).toBeVisible();
-});

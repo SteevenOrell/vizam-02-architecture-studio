@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { CinematicPhilosophy } from '@/components/home/CinematicPhilosophy';
 import { HeroCarousel } from '@/components/home/HeroCarousel';
-import { HomeStudy } from '@/components/home/HomeStudy';
+import { HomeToDrawings } from '@/components/home/HomeToDrawings';
 import { ScrollShowcase } from '@/components/home/ScrollShowcase';
 import { PostCard } from '@/components/journal/PostCard';
 import { ProjectCard } from '@/components/projects/ProjectCard';
@@ -75,7 +75,7 @@ export default function Home() {
         </ul>
       </section>
 
-      <HomeStudy />
+      <HomeToDrawings />
 
       <CinematicPhilosophy />
 

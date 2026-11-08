@@ -197,8 +197,8 @@ test.describe('reduced motion', () => {
 
   test('scroll sections are enhanced (pinned) when motion is allowed', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('[data-study-motion="true"]')).toHaveCount(1);
-    await expect(page.locator('[data-enhanced="true"]')).toHaveCount(1);
+    await expect(page.locator('.hs[data-enhanced="true"]')).toHaveCount(1);
+    await expect(page.locator('[data-enhanced="true"]')).toHaveCount(2);
   });
 });
 
