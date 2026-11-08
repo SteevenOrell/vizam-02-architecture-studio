@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import { ArrowLink, PageIntro } from '@/components/ui/bits';
 import { Reveal } from '@/components/ui/Reveal';
 import { services } from '@/content/studio';

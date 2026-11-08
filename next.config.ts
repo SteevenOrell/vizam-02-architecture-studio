@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
-  images: { formats: ['image/avif', 'image/webp'] },
+  images: { formats: ['image/avif', 'image/webp'], deviceSizes: [390, 640, 750, 828, 1080, 1280, 1672, 1920] },
   turbopack: {
     rules: {
       '*.css': {

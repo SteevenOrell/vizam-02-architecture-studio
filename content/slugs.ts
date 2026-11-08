@@ -9,6 +9,9 @@ export const PROJECT_SLUGS = [
   'mire-apartment',
   'ombra-townhouse',
   'kiln-yard-studios',
+  'olive-court-house',
+  'mar-de-cal',
+  'mira-residence',
 ] as const;
 
 export const POST_SLUGS = ['the-stair-as-a-room', 'notes-on-lime', 'drawing-with-daylight', 'after-the-strip-out'] as const;

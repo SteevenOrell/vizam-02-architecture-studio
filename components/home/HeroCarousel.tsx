@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play } from 'lucide-react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
@@ -130,7 +130,7 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
         <p className="sr-only" aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
           {`Slide ${index + 1} of ${n}: ${current.title}, ${DISCIPLINE_LABEL[current.discipline]}, ${current.year}`}
         </p>
-        <h1 className="sr-only">Ostrel Atelier — architecture and interiors (fictional studio)</h1>
+        <h1 className="meta mb-4 text-paper/80">Ostrel Atelier — architecture and interiors (fictional studio)</h1>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={current.slug}

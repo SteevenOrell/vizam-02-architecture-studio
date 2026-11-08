@@ -1,0 +1,17 @@
+PASS lint - npm run lint
+PASS typecheck - npm run typecheck
+PASS unit - npm run test
+PASS build - npm run build
+FAIL e2e - npm run test:e2e exited 1
+PASS npm audit (production deps) - prod: 0 (high/critical 0); all deps: 0
+PASS tracked private files (.env, .claude, CLAUDE.md, keys)
+PASS secret scan (working tree)
+PASS secret scan (full git history)
+PASS layout: no horizontal scroll from 300 px up (22 routes)
+PASS layout: below 250 px locked at 500 px, html pans
+PASS browser: console errors, failed requests, bad status
+PASS images: none broken
+PASS cards: equal height within a row
+PASS internal links (22 checked)
+
+1 FAIL, 0 WARN. Report: C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio\docs\qa\gate-report.md

@@ -1,0 +1,306 @@
+{
+  "date": "2026-11-08T20:07:00.927Z",
+  "routes": [
+    "/philosophy",
+    "/projects/halden-house",
+    "/projects/lumen-rooms",
+    "/projects/saline-pavilion",
+    "/projects/casa-velo",
+    "/projects/northfold-works",
+    "/projects/mire-apartment",
+    "/projects/ombra-townhouse",
+    "/projects/kiln-yard-studios"
+  ],
+  "issues": [
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: philosophy-window.0dhzqy2avkzoq.webp is 1602px wide for a 1354px slot (1.18x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: philosophy-light.38z1exnz-snla.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: philosophy-model.28i20r-3m3x1f.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: philosophy-stairs.3nj0d392tkals.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: material-shoji.14ly6y669lr0w.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/philosophy",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: material-spheres.0t37-lhox06ge.webp is 489px wide for a 448px slot (1.09x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-stair.3dy4syu168wqw.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-bedroom.1y09tiq4umckz.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: material-spheres.0t37-lhox06ge.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: lumen-suite.3go9uuclj3a2j.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/lumen-rooms",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/lumen-rooms",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: lumen-suite.3go9uuclj3a2j.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/lumen-rooms",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: lumen-reception.2hy45jp2gofxf.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/lumen-rooms",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: lumen-pool.1z8c0rmu55nc8.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/lumen-rooms",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: saline-cover.0dron6ce3_qtt.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/saline-pavilion",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/saline-pavilion",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: saline-cover.0dron6ce3_qtt.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/saline-pavilion",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: saline-model.1fijvn8qhs5ct.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/saline-pavilion",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: saline-stair.2250ky7wheyzp.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/saline-pavilion",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: journal-stair.0haqe-6wg-ky3.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/saline-pavilion",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: casa-velo-cover.0cj2uh_e08yyl.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/casa-velo",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/casa-velo",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: casa-velo-cover.0cj2uh_e08yyl.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/casa-velo",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: casa-velo-kitchen.1r-2s5w3bt90s.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/casa-velo",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: casa-velo-facade.2q-yaaijhle1l.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/casa-velo",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: philosophy-window.0dhzqy2avkzoq.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/casa-velo",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: northfold-cover.0mhq7usd_gqjq.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/northfold-works",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/northfold-works",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: northfold-cover.0mhq7usd_gqjq.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/northfold-works",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: northfold-meeting.1hk_ry7xemapf.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/northfold-works",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: northfold-windows.1dfc9af15l_7-.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/northfold-works",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: mire-after.36i5yg8kparec.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: mire-after.36i5yg8kparec.webp is 1039px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: mire-cover.0fm597kyyz176.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: mire-before.2xxxbrb0almx7.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: mire-after.36i5yg8kparec.webp is 1080px wide for a 1005px slot (1.07x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: mire-before.2xxxbrb0almx7.webp is 1080px wide for a 1005px slot (1.07x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: ombra-after.415-qu5m2d6cq.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "same image used 2 times on this page: mire-after.36i5yg8kparec.webp"
+    },
+    {
+      "route": "/projects/mire-apartment",
+      "level": "WARN",
+      "msg": "same image used 2 times on this page: mire-before.2xxxbrb0almx7.webp"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: ombra-after.415-qu5m2d6cq.webp is 1039px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: journal-blinds.0fzfcz5oy66hk.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: ombra-before.2_l1zxqi-yg8l.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: ombra-after.415-qu5m2d6cq.webp is 1080px wide for a 1005px slot (1.07x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: ombra-before.2_l1zxqi-yg8l.webp is 1080px wide for a 1005px slot (1.07x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: kiln-loft.3zxkxkx0cu73a.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "same image used 2 times on this page: ombra-after.415-qu5m2d6cq.webp"
+    },
+    {
+      "route": "/projects/ombra-townhouse",
+      "level": "WARN",
+      "msg": "same image used 2 times on this page: ombra-before.2_l1zxqi-yg8l.webp"
+    },
+    {
+      "route": "/projects/kiln-yard-studios",
+      "level": "WARN",
+      "msg": "7 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/kiln-yard-studios",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: kiln-loft.3zxkxkx0cu73a.webp is 1039px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/kiln-yard-studios",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: material-shoji.14ly6y669lr0w.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/kiln-yard-studios",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: studio-blocks.00d7tfwz__1e9.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/kiln-yard-studios",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
+    }
+  ]
+}

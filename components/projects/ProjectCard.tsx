@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import Link from 'next/link';
 import { DISCIPLINE_LABEL, type Project } from '@/content/types';
 

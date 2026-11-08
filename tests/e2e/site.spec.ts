@@ -96,19 +96,19 @@ test.describe('hero carousel', () => {
 test.describe('projects', () => {
   test('filtering updates the grid, count and URL', async ({ page }) => {
     await page.goto('/projects');
-    await expect(page.getByTestId('result-count')).toHaveText('Showing 8 of 8 projects');
+    await expect(page.getByTestId('result-count')).toHaveText('Showing 11 of 11 projects');
     await page.getByRole('button', { name: /^Interiors/ }).click();
-    await expect(page.getByTestId('result-count')).toHaveText('Showing 2 of 8 projects');
+    await expect(page.getByTestId('result-count')).toHaveText('Showing 2 of 11 projects');
     await expect(page).toHaveURL(/type=interiors/);
     await expect(page.getByRole('button', { name: /^Interiors/ })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByTestId('project-card')).toHaveCount(2);
     await page.getByRole('button', { name: /^All/ }).click();
-    await expect(page.getByTestId('project-card')).toHaveCount(8);
+    await expect(page.getByTestId('project-card')).toHaveCount(11);
   });
 
   test('filter is read from the URL', async ({ page }) => {
     await page.goto('/projects?type=hospitality');
-    await expect(page.getByTestId('result-count')).toHaveText('Showing 1 of 8 projects');
+    await expect(page.getByTestId('result-count')).toHaveText('Showing 1 of 11 projects');
   });
 
   test('cards in the grid are the same size', async ({ page }) => {
@@ -190,14 +190,15 @@ test.describe('reduced motion', () => {
     await page.goto('/');
     await page.waitForTimeout(500);
     expect(await page.locator('[data-enhanced="true"]').count()).toBe(0);
-    await expect(page.getByRole('heading', { name: 'Halden House', level: 3 }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Olive Court House', level: 3 }).first()).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Light before form' })).toBeVisible();
     await ctx.close();
   });
 
   test('scroll sections are enhanced (pinned) when motion is allowed', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('[data-enhanced="true"]')).toHaveCount(2);
+    await expect(page.locator('[data-study-motion="true"]')).toHaveCount(1);
+    await expect(page.locator('[data-enhanced="true"]')).toHaveCount(1);
   });
 });
 

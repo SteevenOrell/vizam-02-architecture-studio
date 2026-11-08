@@ -53,3 +53,12 @@ AI-generated (Codex), built-in image generation, explicitly requested by the use
 | `material-shoji.webp` | 1672×941, 189 KB | AI-generated (Codex) | [Brief](../../docs/image-requests/material-shoji.md) |
 | `mire-cover.webp` | 1672×941, 225 KB | AI-generated (Codex) | [Brief](../../docs/image-requests/mire-cover.md) |
 | `casa-velo-cover.webp` | 1672×941, 392 KB | AI-generated (Codex) | [Brief](../../docs/image-requests/casa-velo-cover.md) |
+
+## Approved follow-up images
+
+User-approved AI-generated (Codex) fictional architecture, native 1672×941, no upscaling. Generated originals stay ignored.
+
+- `home-scroll-study.webp` — [Prompt](../../docs/image-requests/home-scroll-study.md)
+- `selected-garden-villa-v4.webp` — [Prompt](../../docs/image-requests/selected-garden-villa-v4.md)
+- `selected-coastal-villa-v3.webp` — [Prompt](../../docs/image-requests/selected-coastal-villa-v3.md)
+- `selected-mire-v2.webp` — [Prompt](../../docs/image-requests/selected-mire-v2.md)

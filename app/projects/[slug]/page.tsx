@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
@@ -34,8 +34,8 @@ export default async function ProjectPage({ params }: PageProps<'/projects/[slug
   return (
     <article>
       {/* Hero */}
-      <header className="on-dark relative flex h-[92svh] min-h-[32rem] items-end overflow-hidden bg-night text-paper">
-        <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="100vw" placeholder="blur" className="object-cover" />
+      <header className="project-hero on-dark relative mx-auto max-w-[1040px] flex h-[75svh] min-h-[28rem] md:h-[85svh] items-end overflow-hidden bg-night text-paper">
+        <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="(min-width: 1100px) 1040px, 100vw" placeholder="blur" className="object-contain md:object-cover" />
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/35" />
         <div className="page-x relative w-full pb-12">
           <Link href="/projects" className="meta inline-flex items-center gap-2 text-paper/85 hover:text-paper">
@@ -63,15 +63,15 @@ export default async function ProjectPage({ params }: PageProps<'/projects/[slug
               { label: 'Materials', value: p.materials.join(', ') },
             ]}
           />
-          <p className="meta mt-4 text-stone">Fictional project · Stock photography</p>
+          <p className="meta mt-4 text-stone">Fictional project · Illustrative imagery</p>
         </div>
       </section>
 
       {/* Gallery */}
-      <section aria-labelledby="gallery-title" className="page-x pb-24">
+      {p.gallery.length > 0 && <section aria-labelledby="gallery-title" className="page-x pb-24">
         <h2 id="gallery-title" className="meta mb-6 text-stone">Gallery — {p.gallery.length + 1} images</h2>
         <ProjectGallery images={[p.cover, ...p.gallery]} title={p.title} />
-      </section>
+      </section>}
 
       {/* Story */}
       <section aria-label="Project story" className="page-x border-t border-hairline py-24">
@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: PageProps<'/projects/[slug
       )}
 
       {/* Next project */}
-      <Link href={`/projects/${next.slug}`} className="group on-dark relative block h-[60svh] min-h-[22rem] overflow-hidden bg-night text-paper">
+      <Link href={`/projects/${next.slug}`} className="group on-dark relative mx-auto max-w-[1040px] block h-[60svh] min-h-[22rem] overflow-hidden bg-night text-paper">
         <Image src={next.cover.src} alt="" fill sizes="100vw" className="object-cover opacity-60 transition duration-[1.2s] ease-[var(--ease-arch)] group-hover:scale-[1.03] group-hover:opacity-75" />
         <span className="page-x relative flex h-full flex-col justify-end pb-12">
           <span className="meta">Next project</span>

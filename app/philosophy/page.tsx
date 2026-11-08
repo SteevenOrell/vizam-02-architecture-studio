@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import Image from '@/components/ui/ResponsiveImage';
 import { CinematicPhilosophy } from '@/components/home/CinematicPhilosophy';
 import { ArrowLink, PageIntro, SectionLabel } from '@/components/ui/bits';
 import { Reveal } from '@/components/ui/Reveal';
@@ -29,7 +29,7 @@ export default function PhilosophyPage() {
           <SectionLabel index="B" className="text-stone">Materials</SectionLabel>
           <h2 id="materials-title" className="display-md mt-4">A short library</h2>
           <Reveal className="relative mt-10 aspect-[3/4] max-w-md overflow-hidden">
-            <Image src={img.materialSpheres} alt="Two cast concrete spheres on a mineral floor" fill sizes="(min-width: 1024px) 30vw, 100vw" placeholder="blur" className="object-cover" />
+            <Image src={img.materialSpheres} alt="Two cast concrete spheres on a mineral floor" fill sizes="(min-width: 1024px) 34vw, 100vw" placeholder="blur" className="object-cover" />
           </Reveal>
         </div>
         <ul className="self-end border-t border-hairline lg:col-span-6 lg:col-start-7">

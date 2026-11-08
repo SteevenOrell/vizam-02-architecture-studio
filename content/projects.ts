@@ -1,8 +1,10 @@
+import { additionalProjects } from './additional-projects';
 import { img } from './images';
 import type { Discipline, Project } from './types';
 
 // Fictional projects for a fictional studio (VIZAM concept). Photographs are stock images (see assets/images/CREDITS.md).
 export const projects: Project[] = [
+  ...additionalProjects,
   {
     slug: 'halden-house',
     title: 'Halden House',
