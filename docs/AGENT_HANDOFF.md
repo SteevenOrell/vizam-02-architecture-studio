@@ -12,7 +12,7 @@ Last updated: 2026-11-08 (America/Toronto), Codex
 - Assigned checkout: C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio, private remote origin.
 - Feature branch vizam/initial-build, baseline commit 3982999. Prior update merged via PR #3 at bc1691a (verified in preceding delivery).
 - All current changes are this follow-up's work, including handoff and image briefs; no unrelated work was present. Old .claude worktree untouched.
-- No follow-up commit/push/PR/merge yet. Verify remote main before delivery.
+- Follow-up implementation commit 3d99a19 pushed. Delivery record: https://github.com/SteevenOrell/vizam-02-architecture-studio/pull/4 (main target); consult PR for authoritative merge state. Remote main refreshed before delivery; no incoming source changes.
 
 ## Completed work and changed files
 - Header.tsx: removed direction-based hide state; fixed navigation-number contrast/size now that header remains visible.
@@ -26,7 +26,7 @@ Last updated: 2026-11-08 (America/Toronto), Codex
 - README and tests updated. New motion interaction test passed in first full suite. Desktop and phone visual contact sheets inspected during first audit.
 
 ## Outstanding tasks and next bounded slice
-- No requested implementation remains. Commit and push the verified update; create a PR into main and merge normally under the user's authorization. Verify exact remote commit and merge state.
+- No requested implementation remains. PR #4 contains the verified update and this handoff. Push/merge approved by user; final merge state is recorded on the PR.
 - No production deployment requested. No pending image approval.
 
 ## Commands run, test/build outcomes, failures
@@ -52,5 +52,5 @@ Last updated: 2026-11-08 (America/Toronto), Codex
 
 ## Dependencies, blockers, and decisions needing approval
 - No pending image approval; user approved all four final images and authorized subsequent push/merge. No voice/video or paid API generation used.
-- QA uses 3102 and temporary free 3103; never touch servers on 3000/3001. Each audit owns/stops its own server; ensure cleanup before ending.
+- QA used 3102 and temporary free 3103; never touched servers on 3000/3001. Audit processes completed and own/stopped their servers.
 - Generated QA shots/sheets and original images are ignored; reports can be committed after sensitive-data review.
