@@ -54,3 +54,9 @@ Last updated: 2026-11-08 (America/Toronto), Codex
 - No pending image approval; user approved all four final images and authorized subsequent push/merge. No voice/video or paid API generation used.
 - QA used 3102 and temporary free 3103; never touched servers on 3000/3001. Audit processes completed and own/stopped their servers.
 - Generated QA shots/sheets and original images are ignored; reports can be committed after sensitive-data review.
+
+## Round 2 (2026-11-08): Steeven's requested changes after his Codex edits
+References (outside the repo, third-party designs, never commit): `C:\Users\SteevenWemin\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\side-session-notes\local_7b275a11-a42c-488b-b984-dbb5e6ea3789\p02-round2\` (4 section screenshots + `stillform-section-notes.md`).
+Requests: (1) on mobile keep the same design as desktop, with clean, well-fitted images; (2) hero text collides with the nav bar: fix; (3) replace the small home study with a stillform-style pinned scroll section that starts on a photo of a home and moves on scroll through architectural drawings (elevation, plan, section, exploded axonometric, ...); (4) new sections inspired by the 4 reference screenshots (TERRA spec-card hero, stacked villa panels, white serif-italic hero + stats, tall residence page with stats/rows/statement), plus original drawing images (SVG, no AI images).
+Slices (fresh agent each, sequential, same checkout, branch `vizam/initial-build`): A hero + nav + mobile parity; B pinned "from home to drawings" section + SVG drawing set (replaces `HomeStudy`; scroll animation stays in exactly two sections); C new reference-inspired sections; D Opus QA/security + quality gate + content QA. Orchestrator then re-runs the gate and pushes the branch + opens a PR (no merge without Steeven).
+Status: slice A not started.
