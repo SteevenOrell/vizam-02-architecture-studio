@@ -1,13 +1,14 @@
 {
-  "date": "2026-11-08T23:10:26.077Z",
+  "date": "2026-11-08T23:57:10.255Z",
   "routes": [
-    "/"
+    "/",
+    "/projects/halden-house"
   ],
   "issues": [
     {
       "route": "/",
       "level": "WARN",
-      "msg": "13 text element(s) under 12px"
+      "msg": "16 text element(s) under 12px"
     },
     {
       "route": "/",
@@ -17,17 +18,17 @@
     {
       "route": "/",
       "level": "WARN",
-      "msg": "slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+      "msg": "slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 1440px wide for a 1440px slot (1x; 1.5x or more is sharp)"
     },
     {
       "route": "/",
       "level": "WARN",
-      "msg": "slightly soft on retina screens: selected-coastal-villa-v3.1-pncode-xo89.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+      "msg": "slightly soft on retina screens: selected-coastal-villa-v3.1-pncode-xo89.webp is 1440px wide for a 1440px slot (1x; 1.5x or more is sharp)"
     },
     {
       "route": "/",
       "level": "WARN",
-      "msg": "slightly soft on retina screens: selected-mire-v2.0q9_8ct93-hjt.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+      "msg": "slightly soft on retina screens: selected-mire-v2.0q9_8ct93-hjt.webp is 1440px wide for a 1440px slot (1x; 1.5x or more is sharp)"
     },
     {
       "route": "/",
@@ -88,6 +89,41 @@
       "route": "/",
       "level": "WARN",
       "msg": "slightly soft on retina screens: journal-blinds.0fzfcz5oy66hk.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "9 text element(s) under 12px"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1602px wide for a 1440px slot (1.11x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-stair.3dy4syu168wqw.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: halden-bedroom.1y09tiq4umckz.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: material-spheres.0t37-lhox06ge.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp)"
+    },
+    {
+      "route": "/projects/halden-house",
+      "level": "WARN",
+      "msg": "slightly soft on retina screens: lumen-suite.3go9uuclj3a2j.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp)"
     }
   ]
 }

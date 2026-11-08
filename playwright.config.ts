@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 3102; // 3000/3001 are reserved for Steeven's own servers.
+const PORT = Number(process.env.E2E_PORT ?? 3102); // 3000/3001 are reserved for Steeven's own servers.
 
 export default defineConfig({
   testDir: 'tests/e2e',
@@ -15,7 +15,7 @@ export default defineConfig({
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } } }],
   webServer: {
-    command: `npm run start`,
+    command: `npx next start -p ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: true,
     timeout: 120_000,

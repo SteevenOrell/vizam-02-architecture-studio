@@ -1,15 +1,15 @@
-# Content and visual QA — 2026-11-08T23:10Z
-1 routes. 0 FAIL, 17 WARN.
+# Content and visual QA — 2026-11-08T23:57Z
+2 routes. 0 FAIL, 24 WARN.
 
 Contact sheets (desktop | phone, 5 sections each): `C:\Users\SteevenWemin\Documents\Projects\vizam-02-architecture-studio\docs\qa\content\sheets` — open them and judge image fit, crops, spacing and text over images.
 
 | Level | Route | Issue |
 |---|---|---|
-| WARN | / | 13 text element(s) under 12px |
+| WARN | / | 16 text element(s) under 12px |
 | WARN | / | slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1602px wide for a 1440px slot (1.11x; 1.5x or more is sharp) |
-| WARN | / | slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp) |
-| WARN | / | slightly soft on retina screens: selected-coastal-villa-v3.1-pncode-xo89.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp) |
-| WARN | / | slightly soft on retina screens: selected-mire-v2.0q9_8ct93-hjt.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp) |
+| WARN | / | slightly soft on retina screens: selected-garden-villa-v4.1kibs045idcg9.webp is 1440px wide for a 1440px slot (1x; 1.5x or more is sharp) |
+| WARN | / | slightly soft on retina screens: selected-coastal-villa-v3.1-pncode-xo89.webp is 1440px wide for a 1440px slot (1x; 1.5x or more is sharp) |
+| WARN | / | slightly soft on retina screens: selected-mire-v2.0q9_8ct93-hjt.webp is 1440px wide for a 1440px slot (1x; 1.5x or more is sharp) |
 | WARN | / | slightly soft on retina screens: home-scroll-study.2sm-qtc66qnol.webp is 1602px wide for a 1100px slot (1.46x; 1.5x or more is sharp) |
 | WARN | / | slightly soft on retina screens: philosophy-window.0dhzqy2avkzoq.webp is 1602px wide for a 1354px slot (1.18x; 1.5x or more is sharp) |
 | WARN | / | slightly soft on retina screens: philosophy-light.38z1exnz-snla.webp is 720px wide for a 657px slot (1.1x; 1.5x or more is sharp) |
@@ -22,3 +22,10 @@ Contact sheets (desktop | phone, 5 sections each): `C:\Users\SteevenWemin\Docume
 | WARN | / | slightly soft on retina screens: journal-spiral.3yj96n8td3_yh.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp) |
 | WARN | / | slightly soft on retina screens: material-spheres.0t37-lhox06ge.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp) |
 | WARN | / | slightly soft on retina screens: journal-blinds.0fzfcz5oy66hk.webp is 475px wide for a 435px slot (1.09x; 1.5x or more is sharp) |
+| WARN | /projects/halden-house | 9 text element(s) under 12px |
+| WARN | /projects/halden-house | slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1602px wide for a 1440px slot (1.11x; 1.5x or more is sharp) |
+| WARN | /projects/halden-house | slightly soft on retina screens: halden-cover.086ma9_o22djz.webp is 1040px wide for a 1040px slot (1x; 1.5x or more is sharp) |
+| WARN | /projects/halden-house | slightly soft on retina screens: halden-stair.3dy4syu168wqw.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp) |
+| WARN | /projects/halden-house | slightly soft on retina screens: halden-bedroom.1y09tiq4umckz.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp) |
+| WARN | /projects/halden-house | slightly soft on retina screens: material-spheres.0t37-lhox06ge.webp is 512px wide for a 512px slot (1x; 1.5x or more is sharp) |
+| WARN | /projects/halden-house | slightly soft on retina screens: lumen-suite.3go9uuclj3a2j.webp is 1440px wide for a 1040px slot (1.38x; 1.5x or more is sharp) |

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-const PAGES = ['/', '/projects', '/projects/mire-apartment', '/studio', '/services', '/philosophy', '/journal', '/journal/notes-on-lime', '/contact'];
+const PAGES = ['/', '/projects', '/projects/mire-apartment', '/projects/halden-house', '/studio', '/services', '/philosophy', '/journal', '/journal/notes-on-lime', '/contact'];
 
 test.describe('navigation', () => {
   test('menu panel opens, traps focus, closes on Escape and returns focus', async ({ page }) => {
