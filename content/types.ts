@@ -18,7 +18,27 @@ export interface Img {
   focus?: string;
 }
 
-export interface Project {
+/** Fictional "context" data for a project page: a lead paragraph, three headline figures and three ruled fact rows. */
+export interface ProjectContext {
+  lead: string;
+  stats: { value: string; unit: string; caption: string }[];
+  rows: { title: string; lines: { label: string; value: string }[] }[];
+}
+
+/** Fictional fields added in slice C1 (merged in content/projects.ts from content/project-details.ts). */
+export interface ProjectExtras {
+  /** Invented architects; the first is the lead shown as "Designed by". */
+  architects: string[];
+  /** Three short tag lines for the project hero. */
+  tags: [string, string, string];
+  /** Plausible coordinates for the fictional site, e.g. "38.7981° N, 9.3876° W". */
+  coordinates: string;
+  context?: ProjectContext;
+}
+
+export type ProjectBase = Omit<Project, keyof ProjectExtras>;
+
+export interface Project extends ProjectExtras {
   slug: string;
   title: string;
   location: string;

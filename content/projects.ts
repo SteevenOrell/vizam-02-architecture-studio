@@ -1,9 +1,10 @@
 import { additionalProjects } from './additional-projects';
 import { img } from './images';
-import type { Discipline, Project } from './types';
+import { projectDetails } from './project-details';
+import { DISCIPLINE_LABEL, type Discipline, type Project, type ProjectBase, type ProjectContext } from './types';
 
 // Fictional projects for a fictional studio (VIZAM concept). Photographs are stock images (see assets/images/CREDITS.md).
-export const projects: Project[] = [
+const baseProjects: ProjectBase[] = [
   ...additionalProjects,
   {
     slug: 'halden-house',
@@ -304,6 +305,31 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const projects: Project[] = baseProjects.map((p) => {
+  const d = projectDetails[p.slug];
+  if (!d) throw new Error(`Missing project details for ${p.slug}`);
+  return { ...p, ...d };
+});
+
+/** Context data for a project page: the project's own fictional data, or a generic fallback built from its basics. */
+export function getContext(p: Project): ProjectContext {
+  if (p.context) return p.context;
+  const m = p.materials;
+  return {
+    lead: `${p.title} is a fictional ${DISCIPLINE_LABEL[p.discipline].toLowerCase()} study in ${p.location}. ${p.summary}`,
+    stats: [
+      { value: p.area.toLocaleString('en-GB'), unit: 'm²', caption: 'gross internal area' },
+      { value: String(m.length), unit: 'materials', caption: 'in the principal palette' },
+      { value: String(p.year), unit: '', caption: p.status === 'On site' ? 'expected completion' : 'year of the study' },
+    ],
+    rows: [
+      { title: 'Light', lines: [{ label: 'Orientation', value: 'Studied by the hour' }, { label: 'Openings', value: 'Placed after sun studies' }] },
+      { title: 'Materials', lines: m.slice(0, 3).map((x) => ({ label: x, value: 'Principal palette' })) },
+      { title: 'Place', lines: [{ label: 'Setting', value: p.location }, { label: 'Status', value: p.status }] },
+    ],
+  };
+}
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

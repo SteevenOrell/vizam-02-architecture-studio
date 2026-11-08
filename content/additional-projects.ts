@@ -1,7 +1,7 @@
 import { img } from './images';
-import type { Project } from './types';
+import type { ProjectBase } from './types';
 
-export const additionalProjects: Project[] = [
+export const additionalProjects: ProjectBase[] = [
   {
     slug: 'olive-court-house', title: 'Olive Court House', location: 'Alentejo, Portugal', year: 2026,
     discipline: 'residential', area: 318, status: 'Concept',
