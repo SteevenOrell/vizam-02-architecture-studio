@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 import Image from '@/components/ui/ResponsiveImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
 import { BeforeAfter } from '@/components/projects/BeforeAfter';
+import { DrawingsStrip } from '@/components/projects/DrawingsStrip';
+import { ProjectContextSection } from '@/components/projects/ProjectContextSection';
 import { ProjectGallery } from '@/components/projects/ProjectGallery';
+import { SpecHero } from '@/components/projects/SpecHero';
 import { MetaRows, SectionLabel } from '@/components/ui/bits';
 import { Reveal } from '@/components/ui/Reveal';
 import { getProject, nextProject, projects } from '@/content/projects';
@@ -34,17 +36,7 @@ export default async function ProjectPage({ params }: PageProps<'/projects/[slug
   return (
     <article>
       {/* Hero */}
-      <header className="project-hero on-dark relative mx-auto max-w-[1040px] flex h-[75svh] min-h-[28rem] md:h-[85svh] items-end overflow-hidden bg-night text-paper">
-        <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="(min-width: 1100px) 1040px, 100vw" placeholder="blur" className="object-contain md:object-cover" />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/35" />
-        <div className="page-x relative w-full pb-12">
-          <Link href="/projects" className="meta inline-flex items-center gap-2 text-paper/85 hover:text-paper">
-            <ArrowLeft aria-hidden className="size-3.5" /> All projects
-          </Link>
-          <p className="meta mt-8 text-paper/85">{DISCIPLINE_LABEL[p.discipline]} · {p.location} · {p.year}</p>
-          <h1 className="display-xl mt-3 [text-wrap:balance]">{p.title}</h1>
-        </div>
-      </header>
+      <SpecHero project={p} />
 
       {/* Intro + facts */}
       <section className="page-x grid gap-12 py-24 lg:grid-cols-12 lg:py-32">
@@ -85,6 +77,12 @@ export default async function ProjectPage({ params }: PageProps<'/projects/[slug
           ))}
         </ol>
       </section>
+
+      {/* Context: fictional figures and fact rows */}
+      <ProjectContextSection project={p} />
+
+      {/* Drawings: the studio's fictional house study, on residential projects that show a gallery */}
+      {p.discipline === 'residential' && p.gallery.length > 0 && <DrawingsStrip />}
 
       {/* Before / after */}
       {p.comparison && (

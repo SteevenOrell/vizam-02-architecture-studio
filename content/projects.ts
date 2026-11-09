@@ -1,9 +1,10 @@
 import { additionalProjects } from './additional-projects';
 import { img } from './images';
-import type { Discipline, Project } from './types';
+import { projectDetails } from './project-details';
+import { DISCIPLINE_LABEL, type Discipline, type Project, type ProjectBase, type ProjectContext } from './types';
 
 // Fictional projects for a fictional studio (VIZAM concept). Photographs are stock images (see assets/images/CREDITS.md).
-export const projects: Project[] = [
+const baseProjects: ProjectBase[] = [
   ...additionalProjects,
   {
     slug: 'halden-house',
@@ -38,7 +39,7 @@ export const projects: Project[] = [
       { label: 'Energy', value: 'Ground-source heat pump, passive cooling' },
     ],
     materials: ['Board-marked concrete', 'Oiled oak', 'Lime plaster', 'Basalt paving'],
-    cover: { src: img.haldenCover, alt: 'Dusk view of a house of stacked concrete volumes with lit interiors above a lawn' },
+    cover: { src: img.haldenCover, alt: 'Dusk view of a house of stacked concrete volumes with lit interiors above a lawn', focus: '32% 50%' },
     gallery: [
       { src: img.haldenStair, alt: 'Curved white stair rising through a timber-lined stairwell' },
       { src: img.haldenBedroom, alt: 'Bedroom with concrete walls and a tall window casting soft daylight on the bed' },
@@ -78,7 +79,7 @@ export const projects: Project[] = [
       { label: 'Heritage', value: 'Adaptive reuse of an industrial shed' },
     ],
     materials: ['Lime plaster', 'Travertine', 'Pine', 'Woven rush'],
-    cover: { src: img.lumenSuite, alt: 'Suite bedroom facing a wide window with the sea at sunset' },
+    cover: { src: img.lumenSuite, alt: 'Suite bedroom facing a wide window with the sea at sunset', focus: '52% 50%' },
     gallery: [
       { src: img.lumenReception, alt: 'Marble reception counter in a bright hall with dark joinery' },
       { src: img.lumenPool, alt: 'Courtyard pool lit at dusk, surrounded by timber pavilions' },
@@ -113,7 +114,7 @@ export const projects: Project[] = [
       { label: 'Completion', value: 'Expected 2026' },
     ],
     materials: ['White concrete', 'Salt-glazed tile', 'Galvanised steel', 'Cork'],
-    cover: { src: img.salineCover, alt: 'White concrete exhibition pavilion with a folded roof above calm salt pans' },
+    cover: { src: img.salineCover, alt: 'White concrete exhibition pavilion with a folded roof above calm salt pans', focus: '50% 50%' },
     gallery: [
       { src: img.salineModel, alt: 'White study model of a pavilion with a roof light and a sunken court' },
       { src: img.salineStair, alt: 'Concrete stair washed by a hidden line of warm light' },
@@ -149,7 +150,7 @@ export const projects: Project[] = [
       { label: 'Water', value: 'Rainwater harvesting for the garden' },
     ],
     materials: ['Lime render', 'Rammed earth', 'Oak', 'Terracotta'],
-    cover: { src: img.casaVeloCover, alt: 'A low white house with a long glazed living room opening onto a pool and lawn' },
+    cover: { src: img.casaVeloCover, alt: 'A low white house with a long glazed living room opening onto a pool and lawn', focus: '60% 50%' },
     gallery: [
       { src: img.casaVeloKitchen, alt: 'Bright kitchen with an oak island, pendant lamps and open shelves' },
       { src: img.casaVeloFacade, alt: 'Minimal white walls and a slatted screen along a narrow passage' },
@@ -185,7 +186,7 @@ export const projects: Project[] = [
       { label: 'Certification', value: 'Targeting low-embodied-carbon fit-out' },
     ],
     materials: ['Polished screed', 'Birch plywood', 'Wool felt', 'Powder-coated steel'],
-    cover: { src: img.northfoldCover, alt: 'Open-plan workplace with concrete beams, oak tables and plants' },
+    cover: { src: img.northfoldCover, alt: 'Open-plan workplace with concrete beams, oak tables and plants', focus: '50% 50%' },
     gallery: [
       { src: img.northfoldMeeting, alt: 'Meeting room with a long table, white chairs and a whiteboard wall' },
       { src: img.northfoldWindows, alt: 'Quiet corner of tables and chairs by tall windows' },
@@ -219,7 +220,7 @@ export const projects: Project[] = [
       { label: 'Heritage', value: 'Listed facade, interior alterations' },
     ],
     materials: ['Limewash', 'Bouclé', 'Oak parquet', 'Linen'],
-    cover: { src: img.mireAfter, alt: 'Light living room with a low sofa, a round coffee table and soft daylight' },
+    cover: { src: img.mireAfter, alt: 'Light living room with a low sofa, a round coffee table and soft daylight', focus: '55% 50%' },
     gallery: [
       { src: img.mireCover, alt: 'Wide view of a pale living and dining space with a long sofa' },
       { src: img.mireBefore, alt: 'Empty period room with tall windows and parquet before the works' },
@@ -258,7 +259,7 @@ export const projects: Project[] = [
       { label: 'Reuse', value: '70 % of existing walls retained' },
     ],
     materials: ['Microcement', 'Sealed plaster', 'Smoked oak', 'Steel'],
-    cover: { src: img.ombraAfter, alt: 'Concrete bedroom with a low bed and a large dark photograph on the wall' },
+    cover: { src: img.ombraAfter, alt: 'Concrete bedroom with a low bed and a large dark photograph on the wall', focus: '50% 50%' },
     gallery: [
       { src: img.journalBlinds, alt: 'Corridor with floor-to-ceiling blinds filtering daylight' },
       { src: img.ombraBefore, alt: 'Empty room with raw plaster walls and a timber floor before renovation' },
@@ -297,13 +298,38 @@ export const projects: Project[] = [
       { label: 'Landscape', value: 'Rain-fed living wall' },
     ],
     materials: ['Reclaimed brick', 'Steel', 'Concrete', 'Living wall'],
-    cover: { src: img.kilnLoft, alt: 'Loft with exposed brick, a steel stair, a living wall and low seating' },
+    cover: { src: img.kilnLoft, alt: 'Loft with exposed brick, a steel stair, a living wall and low seating', focus: '50% 50%' },
     gallery: [
       { src: img.materialShoji, alt: 'Paper screen with a dark timber grid in soft light' },
       { src: img.studioBlocks, alt: 'Wooden blocks stacked into an architectural study model' },
     ],
   },
 ];
+
+export const projects: Project[] = baseProjects.map((p) => {
+  const d = projectDetails[p.slug];
+  if (!d) throw new Error(`Missing project details for ${p.slug}`);
+  return { ...p, ...d };
+});
+
+/** Context data for a project page: the project's own fictional data, or a generic fallback built from its basics. */
+export function getContext(p: Project): ProjectContext {
+  if (p.context) return p.context;
+  const m = p.materials;
+  return {
+    lead: `${p.title} is a fictional ${DISCIPLINE_LABEL[p.discipline].toLowerCase()} study in ${p.location}. ${p.summary}`,
+    stats: [
+      { value: p.area.toLocaleString('en-GB'), unit: 'm²', caption: 'gross internal area' },
+      { value: String(m.length), unit: 'materials', caption: 'in the principal palette' },
+      { value: String(p.year), unit: '', caption: p.status === 'On site' ? 'expected completion' : 'year of the study' },
+    ],
+    rows: [
+      { title: 'Light', lines: [{ label: 'Orientation', value: 'Studied by the hour' }, { label: 'Openings', value: 'Placed after sun studies' }] },
+      { title: 'Materials', lines: m.slice(0, 3).map((x) => ({ label: x, value: 'Principal palette' })) },
+      { title: 'Place', lines: [{ label: 'Setting', value: p.location }, { label: 'Status', value: p.status }] },
+    ],
+  };
+}
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

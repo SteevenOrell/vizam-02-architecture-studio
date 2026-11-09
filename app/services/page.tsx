@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from '@/components/ui/ResponsiveImage';
 import { ArrowLink, PageIntro } from '@/components/ui/bits';
+import { DeliverableSheets } from '@/components/studio/DeliverableSheets';
 import { Reveal } from '@/components/ui/Reveal';
 import { services } from '@/content/studio';
 
@@ -13,7 +14,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageIntro index="03" label="Services" title="Five ways to begin." lead="Most projects combine two or three of these. All of them start with a visit, a measured survey and a model." />
-      <div className="page-x pb-24">
+      <div className="page-x pb-12">
         {services.map((s, i) => (
           <section key={s.slug} id={s.slug} aria-labelledby={`${s.slug}-title`} className="grid scroll-mt-24 gap-8 border-t border-hairline py-16 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -36,9 +37,10 @@ export default function ServicesPage() {
             </Reveal>
           </section>
         ))}
-        <div className="border-t border-hairline pt-12">
-          <ArrowLink href="/contact">Describe your project</ArrowLink>
-        </div>
+      </div>
+      <DeliverableSheets />
+      <div className="page-x border-t border-hairline pb-24 pt-12">
+        <ArrowLink href="/contact">Describe your project</ArrowLink>
       </div>
     </>
   );

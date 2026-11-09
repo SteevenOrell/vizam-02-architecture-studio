@@ -22,20 +22,22 @@ export function ProjectGallery({ images, title }: { images: Img[]; title: string
   const close = () => dialog.current?.close();
   const step = (d: number) => setActive((i) => wrapIndex(i + d, n));
 
-  // First image spans two columns; the rest are equal tiles.
+  // First image spans two columns; the rest are equal tiles. A last tile that would sit alone next to an empty cell
+  // spans the row too.
+  const isWide = (i: number) => i === 0 || (i === n - 1 && (n - 1) % 2 === 1);
   return (
     <>
       <ul className="mx-auto grid max-w-[1040px] gap-4 md:grid-cols-2" data-testid="gallery">
         {images.map((image, i) => (
-          <li key={i} className={i === 0 ? 'md:col-span-2' : ''}>
+          <li key={i} className={isWide(i) ? 'md:col-span-2' : ''}>
             <button
               type="button"
               onClick={() => open(i)}
               className="group relative block w-full overflow-hidden bg-hairline"
               aria-label={`Open image ${i + 1} of ${n} in full screen: ${image.alt}`}
             >
-              <span className={`relative block ${i === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
-                <Image src={image.src} alt="" fill sizes={i === 0 ? '(min-width: 1100px) 1040px, 100vw' : '(min-width: 1100px) 512px, (min-width: 768px) 50vw, 100vw'} placeholder="blur" className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-arch)] group-hover:scale-[1.03]" />
+              <span className={`relative block ${i === 0 ? 'aspect-[16/9]' : isWide(i) ? 'aspect-[4/3] md:aspect-[16/9]' : 'aspect-[4/3]'}`}>
+                <Image src={image.src} alt="" fill sizes={isWide(i) ? '(min-width: 1100px) 1040px, 100vw' : '(min-width: 1100px) 512px, (min-width: 768px) 50vw, 100vw'} placeholder="blur" className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-arch)] group-hover:scale-[1.03]" />
               </span>
               <span className="meta absolute bottom-3 right-3 flex items-center gap-2 bg-plaster/90 px-2 py-1 text-graphite opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                 <Expand aria-hidden className="size-3" /> View

@@ -1,7 +1,7 @@
 import { img } from './images';
-import type { Project } from './types';
+import type { ProjectBase } from './types';
 
-export const additionalProjects: Project[] = [
+export const additionalProjects: ProjectBase[] = [
   {
     slug: 'olive-court-house', title: 'Olive Court House', location: 'Alentejo, Portugal', year: 2026,
     discipline: 'residential', area: 318, status: 'Concept',
@@ -10,7 +10,7 @@ export const additionalProjects: Project[] = [
     story: [{ heading: 'Shelter in the grove', body: 'The garden sets the rhythm of this fictional design study. Openings face the long views; solid walls protect the bedrooms and make shaded places to sit. This illustrative concept does not represent a commissioned or completed building.' }],
     facts: [{ label: 'Project', value: 'Fictional concept' }, { label: 'Programme', value: 'Private residence' }],
     materials: ['Travertine', 'Lime plaster', 'Oak'],
-    cover: { src: img.gardenVilla, alt: 'Pale travertine garden villa with oak-framed glazing among olive trees' }, gallery: [],
+    cover: { src: img.gardenVilla, alt: 'Pale travertine garden villa with oak-framed glazing among olive trees', focus: '45% 50%' }, gallery: [],
   },
   {
     slug: 'mar-de-cal', title: 'Mar de Cal', location: 'Atlantic coast, Portugal', year: 2026,
@@ -20,7 +20,7 @@ export const additionalProjects: Project[] = [
     story: [{ heading: 'A horizon held in plaster', body: 'This fictional coastal study uses a sequence of sheltered thresholds. The arch marks the transition from the cool interior to open sky. Terracotta pots and restrained planting bring a domestic scale to the broad terrace.' }],
     facts: [{ label: 'Project', value: 'Fictional concept' }, { label: 'Programme', value: 'Coastal residence' }],
     materials: ['Lime plaster', 'Limestone', 'Terracotta'],
-    cover: { src: img.coastalVilla, alt: 'Curved ivory coastal villa with an arched passage and a sea-facing limestone terrace' }, gallery: [],
+    cover: { src: img.coastalVilla, alt: 'Curved ivory coastal villa with an arched passage and a sea-facing limestone terrace', focus: '40% 50%' }, gallery: [],
   },
   {
     slug: 'mira-residence', title: 'Mira Residence', location: 'Lisbon, Portugal', year: 2026,
@@ -30,6 +30,6 @@ export const additionalProjects: Project[] = [
     story: [{ heading: 'Outdoor rooms in the city', body: 'Each balcony is treated as a room rather than a ledge. In this fictional residential proposal, planted edges filter street views while the deep reveals temper direct sunlight. The shared entrance remains open and legible from the pavement.' }],
     facts: [{ label: 'Project', value: 'Fictional concept' }, { label: 'Programme', value: 'Apartments and shared courtyard' }],
     materials: ['Limestone', 'Oak', 'Bronze'],
-    cover: { src: img.miraResidence, alt: 'Contemporary limestone apartment building with deep planted balconies and timber screens' }, gallery: [],
+    cover: { src: img.miraResidence, alt: 'Contemporary limestone apartment building with deep planted balconies and timber screens', focus: '62% 50%' }, gallery: [],
   },
 ];

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-const PAGES = ['/', '/projects', '/projects/mire-apartment', '/studio', '/services', '/philosophy', '/journal', '/journal/notes-on-lime', '/contact'];
+const PAGES = ['/', '/projects', '/projects/mire-apartment', '/projects/halden-house', '/studio', '/services', '/philosophy', '/journal', '/journal/notes-on-lime', '/contact'];
 
 test.describe('navigation', () => {
   test('menu panel opens, traps focus, closes on Escape and returns focus', async ({ page }) => {
@@ -197,8 +197,8 @@ test.describe('reduced motion', () => {
 
   test('scroll sections are enhanced (pinned) when motion is allowed', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('[data-study-motion="true"]')).toHaveCount(1);
-    await expect(page.locator('[data-enhanced="true"]')).toHaveCount(1);
+    await expect(page.locator('.hs[data-enhanced="true"]')).toHaveCount(1);
+    await expect(page.locator('[data-enhanced="true"]')).toHaveCount(2);
   });
 });
 

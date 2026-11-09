@@ -1,4 +1,4 @@
-# Quality gate - 2026-11-08T20:08Z
+# Quality gate - 2026-11-09T00:58Z
 
 | Step | Result | Detail |
 |---|---|---|
@@ -11,7 +11,7 @@
 | tracked private files (.env, .claude, CLAUDE.md, keys) | PASS |  |
 | secret scan (working tree) | PASS |  |
 | secret scan (full git history) | PASS |  |
-| layout: no horizontal scroll from 300 px up (13 routes) | PASS |  |
+| layout: no horizontal scroll from 300 px up (22 routes) | PASS |  |
 | layout: below 250 px locked at 500 px, html pans | PASS |  |
 | browser: console errors, failed requests, bad status | PASS |  |
 | images: none broken | PASS |  |

@@ -20,32 +20,16 @@ for (const width of [390, 1440]) {
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollbarWidth)).toBe('none');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-    await page.screenshot({ path: `docs/screenshots/refined-${width}-hero.png` });
+    await page.screenshot({ path: `test-results/shots/refined-${width}-hero.png` });
 
     const selected = page.locator('[data-selected-project]').first();
     await selected.scrollIntoViewIfNeeded();
     await expect(selected.getByRole('heading')).toContainText('Olive Court House');
     await selected.locator('img').evaluate(async (el: HTMLImageElement) => { await el.decode(); });
     await expect(page.locator('header').first()).toBeInViewport();
-    await page.screenshot({ path: `docs/screenshots/refined-${width}-showcase.png` });
+    await page.screenshot({ path: `test-results/shots/refined-${width}-showcase.png` });
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
     await expect(page.getByRole('region', { name: 'Contact us', exact: true })).toBeVisible();
-    await page.screenshot({ path: `docs/screenshots/refined-${width}-footer.png` });
+    await page.screenshot({ path: `test-results/shots/refined-${width}-footer.png` });
   });
 }
-
-test('home study begins with the home and reveals structure only while scrolling', async ({ page }) => {
-  await page.goto('/');
-  const study = page.locator('[data-study-motion="true"]');
-  await expect(study).toHaveCount(1);
-  const top = await study.evaluate(el => el.getBoundingClientRect().top + window.scrollY - 72);
-  await page.evaluate(y => window.scrollTo(0, y), top);
-  await expect(study.locator('[data-study-photo]')).toHaveCSS('opacity', '1');
-  await study.getByRole('button', { name: 'Structure', exact: true }).click();
-  await expect(study.locator('[data-study-diagram]')).toHaveCSS('visibility', 'visible');
-  await expect(study.locator('[data-study-photo]')).toHaveCSS('opacity', '0');
-  await expect(page.locator('header').first()).toBeInViewport();
-  await page.screenshot({ path: 'docs/screenshots/refined-structure.png' });
-  await study.getByRole('button', { name: 'A place to live', exact: true }).click();
-  await expect(study.getByRole('heading', { name: 'A place to live', exact: true })).toBeVisible();
-});

@@ -127,3 +127,74 @@ Validation: delivery quality gate **0 FAIL / 0 WARN**, with lint, types, 37 unit
 Opened the full-site contact-sheet set and refreshed affected-route sheets. Corrected catalogue count/copy, navbar number contrast, mobile hero framing, repeated new-project cover-only gallery, source bounds and gallery size hints. Reviewed final new-project hero montage and motion/static fallbacks. Generated output is native 1672×941, not 4K; legacy high-density desktop limits and editorial microtype are recorded. Canonical article/project thumbnails and existing comparison/gallery reuse remain intentional. Earlier full failure evidence is retained under docs/qa/failures and build logs.
 
 Limits: local Chromium only; no real-device, other-browser, screen-reader or Core Web Vitals guarantee. The schematic is not a measured/photorealistic 3D model. No production deployment was requested.
+
+## Round 2 independent review (2026-11-08, slice D)
+
+Reviewer: fresh Opus agent, branch `vizam/initial-build`, own production builds on ports 3107 (Playwright), 3108 (gate) and
+3109 (spot checks), all stopped afterwards. Earlier slice claims were re-checked in code and in rendered screenshots.
+
+### Findings
+
+| # | Severity | Finding | Status |
+|---|---|---|---|
+| 1 | Medium (content) | Studio said "14 people" (studio hero, home intro) but the people table lists 6. | Fixed: `studioFacts.people = people.length`; home intro reads founded/cities/people from `studioFacts`; unit test pins it. |
+| 2 | Medium (content) | Project spec cards and home panels credited 22 invented architects, not the studio's 6 people. | Fixed: architects are now drawn from the people table; unit test checks every name. |
+| 3 | Low (a11y) | Project hero: small meta/tags at the top sat on bright skies (worst-case background contrast 2.5:1). | Fixed: extra top shade + darker mid gradient. Worst-case (brightest 5% of pixels, text-shadow ignored) now 4.4:1 for meta, 3.4:1 for tags, 2.3-3.0:1 for the very large titles (Mire Apartment, Northfold Works); readable in screenshots. Kept as a limitation. |
+| 4 | Low (layout) | Halden House gallery (cover + 3) left an empty half cell in the last row. | Fixed: a lone last tile spans the row (16:9 on desktop, 4:3 on phone). |
+| 5 | Low (docs) | README described the pre-Round-2 phone hero and selected-work layout. | Fixed: README describes full-bleed heroes, panels, "A home, drawn" and the new sections. |
+| 6 | Low (a11y) | The pinned section's chapter rail is hidden until the intro has played, so keyboard users tabbing from the top reach "Skip the chapters" but not the rail. The rail works with Enter once visible (verified: dot 4 -> "Chapter 4 of 7: Elevation"), and the live status reads each chapter. | Open, recommendation: show the HUD on `:focus-within`. |
+| 7 | Low (decision) | On portrait phones the drawing sheets are turned a quarter turn (by design in slice B) so labels read sideways. | Needs Steeven's taste call. |
+| 8 | Low (images) | Reuse across pages: material-spheres (journal cover "Notes on lime", Halden gallery, services "Furniture & objects", philosophy materials), journal-renovation (journal cover + renovation service), lumen-suite, material-shoji. Never twice on one page. | Kept: each use fits its section; cards repeat by nature. |
+| 9 | Info (security) | Rate limit keys on the first `x-forwarded-for` entry, which a client can set when not behind a proxy that overwrites it; per-instance memory only. | Open, recommendation: use the platform-trusted IP (Vercel overwrites XFF) and a shared store before production. |
+| 10 | Info (security) | CSP keeps `'unsafe-inline'` for scripts (no nonces, to stay static). | Known trade-off (see first-pass review). |
+| 11 | Info | `priority` on next/image is deprecated in Next 16 (`preload`); the hero uses `ResponsiveImage`, which maps it to `loading="eager"` + `fetchPriority="high"`. | Kept; switch when touching those files. |
+
+Verified as correct: proxy 404s (`/projects/nope`, `/journal/nope`, `/projects/%ZZ` -> 404; all 11 project and 4 post slugs
+200; slug lists tied to content by unit test); bogus server action -> 400; headers (CSP, nosniff, DENY, referrer,
+permissions, no x-powered-by); no `dangerouslySetInnerHTML`, no `target="_blank"`, only `mailto:` and internal links;
+images local only (no remote patterns); nothing tracked from `.claude/`, `.secrets`, `test-results/` or the reference
+folder; tracked images are WebP only (the PNGs once in history were own-site screenshots, since removed); no third-party
+screenshots or markup in the tree or history (`docs/reference-analysis.md` is prose notes). Footer, menu and contact page
+show "VIZAM concept project — fictional studio"; README opens with it. Statistics are labelled (studio stats, project
+Context note, panels, drawings "fictional concept").
+Scroll-driven animation exists in exactly two components: `components/home/HomeToDrawings.tsx` (scrub 0.6, pinned) and
+`components/home/CinematicPhilosophy.tsx` (scrub 0.8); everything else uses Reveal (in-view only).
+Performance sanity (headless Chromium, production): home LCP is the hero h1 at about 0.3 s; about 524 KB of images on
+first load (hero 117 KB at w=1672, the study photo 96 KB eager with `fetchPriority="low"`, three panel images); JS about
+272-338 KB transferred; no long tasks while scrubbing through the pinned section. Not a Lighthouse run.
+
+### Screenshots looked at
+Hero, all 5 slides at 1885x950, 1353x810, 1440x900, 768x1024, 390x844: title top never above 329 px, header bottom 72 px,
+nav legible over every photo. "A home, drawn" intro + 7 chapters at 1440 and 390: images fitted, sheets and title blocks
+clean, no collisions. Home panels, project spec hero + Context (11 projects), studio hero (4 stats render: 11, 2014, 6, 2),
+philosophy closing statement and services sheets at 390 and 1440: nothing clipped. Contact sheets of all 11 routes
+(content QA). Fixed header and skip link showing mid-section in element screenshots are a capture artefact (both are
+off-screen or at the top in real viewports).
+
+### Checks (final run, after the fixes)
+| Command | Result |
+|---|---|
+| `E2E_PORT=3107 node <skill>/vizam-quality-gate/scripts/gate.mjs --start "npx next start -p 3108" --url http://127.0.0.1:3108 --out docs/qa` | 0 FAIL, 0 WARN |
+| - `npm run lint` | PASS (0 errors, 1 pre-existing warning: `components/ui/ResponsiveImage.tsx` jsx-a11y/alt-text false positive, alt is passed through props) |
+| - `npm run typecheck` | PASS |
+| - `npm test` (Vitest) | PASS, 51/51 |
+| - `npm run build` | PASS |
+| - `npm run test:e2e` (Playwright + axe, own build on 3107) | PASS, 94 tests |
+| - `npm audit` | PASS, 0 vulnerabilities (prod and dev) |
+| - tracked private files, secret scan tree + full history | PASS |
+| - layout at 240/300/390/768/1440 on 22 routes (h-scroll, 250 px lock, console, images, links, cards) | PASS |
+| `node <skill>/vizam-content-qa/scripts/content-qa.mjs ... --routes` (11 routes, `docs/qa/content-d`) | 0 FAIL, 80 WARN |
+| `node <skill>/site-media/scripts/image-audit.mjs validate --images public,assets,src/assets` | PASS, 1 WARN (photographer piro4d has 4 images site-wide) |
+
+Content QA WARNs kept: 58 "slightly soft on retina" are a measurement artefact (with `srcset` the browser reports
+`naturalWidth` density-corrected to the `sizes` slot, e.g. 475 = 33vw at 1440; the file actually fetched is the 1080 or
+1672 variant); 11 "text under 12px" are the mono meta labels and SVG drawing labels (design system); repeated
+paragraphs are journal cards and the fictional-data note (intended); repeated images: see finding 8.
+
+### Known limitations
+Not covered: Lighthouse/Core Web Vitals, screen readers, real devices, Safari/Firefox. Contrast over photos is estimated
+from screenshots, not certified. The form is a demo (nothing sent or stored). Concept site with fictional data; any
+production use needs an independent security and compliance review.
+
+### Verdict
+Ready for a PR (no merge without Steeven). Open items 6, 7, 9 are recommendations or taste calls, not blockers.

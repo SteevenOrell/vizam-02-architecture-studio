@@ -2,15 +2,15 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { CinematicPhilosophy } from '@/components/home/CinematicPhilosophy';
 import { HeroCarousel } from '@/components/home/HeroCarousel';
-import { HomeStudy } from '@/components/home/HomeStudy';
-import { ScrollShowcase } from '@/components/home/ScrollShowcase';
+import { HomeToDrawings } from '@/components/home/HomeToDrawings';
+import { ProjectPanels } from '@/components/home/ProjectPanels';
 import { PostCard } from '@/components/journal/PostCard';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { ArrowLink, MetaRows, SectionLabel } from '@/components/ui/bits';
 import { Reveal } from '@/components/ui/Reveal';
 import { posts } from '@/content/journal';
 import { featuredProjects, getProject, projects } from '@/content/projects';
-import { services } from '@/content/studio';
+import { services, studioFacts } from '@/content/studio';
 
 const showcase = ['olive-court-house', 'mar-de-cal', 'mira-residence'].map((s) => getProject(s)!);
 
@@ -37,10 +37,10 @@ export default function Home() {
               <Reveal delay={0.2}>
                 <MetaRows
                   rows={[
-                    { label: 'Founded', value: '2014 (fictional)' },
-                    { label: 'Studios', value: 'Lisbon · Copenhagen' },
+                    { label: 'Founded', value: `${studioFacts.founded} (fictional)` },
+                    { label: 'Studios', value: studioFacts.cities.join(' · ') },
                     { label: 'Disciplines', value: 'Architecture, interiors, reuse, objects' },
-                    { label: 'People', value: '14 architects, designers and makers' },
+                    { label: 'People', value: `${studioFacts.people} architects, designers and makers` },
                   ]}
                 />
                 <ArrowLink href="/studio" className="mt-8">About the studio</ArrowLink>
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ScrollShowcase projects={showcase} />
+      <ProjectPanels projects={showcase} />
 
       {/* (03) Services — restrained index rows */}
       <section aria-labelledby="services-title" className="page-x py-28 md:py-36">
@@ -75,7 +75,7 @@ export default function Home() {
         </ul>
       </section>
 
-      <HomeStudy />
+      <HomeToDrawings />
 
       <CinematicPhilosophy />
 

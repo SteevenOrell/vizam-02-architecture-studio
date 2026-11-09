@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from '@/components/ui/ResponsiveImage';
-import { ArrowLink, MetaRows, PageIntro, SectionLabel } from '@/components/ui/bits';
+import { StudioHero } from '@/components/studio/StudioHero';
+import { ArrowLink, MetaRows, SectionLabel } from '@/components/ui/bits';
 import { Reveal } from '@/components/ui/Reveal';
 import { img } from '@/content/images';
 import { people, processSteps } from '@/content/studio';
@@ -13,9 +14,9 @@ export const metadata: Metadata = {
 export default function StudioPage() {
   return (
     <>
-      <PageIntro index="02" label="Studio" title="A small room full of models." lead="Fourteen people in two cities, one shared sample library and a long table where every project begins as card and plaster." />
+      <StudioHero />
 
-      <section className="page-x grid gap-6 pb-24 md:grid-cols-12">
+      <section className="page-x grid gap-6 py-24 md:grid-cols-12">
         <Reveal className="relative aspect-[4/3] overflow-hidden md:col-span-7">
           <Image src={img.studioBlocks} alt="Timber blocks stacked into a study model on the studio table" fill sizes="(min-width: 768px) 58vw, 100vw" placeholder="blur" className="object-cover" />
         </Reveal>

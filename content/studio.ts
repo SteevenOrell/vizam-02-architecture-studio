@@ -121,3 +121,6 @@ export const people = [
   { name: 'Ada Noronha', role: 'Lighting & materials', note: 'Daylight studies and the sample library.' },
   { name: 'Rui Saldanha', role: 'Project architect', note: 'Hospitality and reuse. Fluent in planning law.' },
 ];
+
+/** Fictional concept data for the studio stats. The head count is the people table, so every page agrees. */
+export const studioFacts = { founded: 2014, people: people.length, cities: site.cities };

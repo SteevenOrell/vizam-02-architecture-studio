@@ -81,7 +81,7 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
       aria-roledescription="carousel"
       aria-label="Featured projects"
       data-paused={paused}
-      className="on-dark relative isolate h-[100svh] min-h-[34rem] w-full overflow-hidden bg-night text-paper"
+      className="on-dark relative isolate flex min-h-[max(100svh,34rem)] w-full flex-col overflow-hidden bg-night text-paper"
       onMouseEnter={() => setHoverPaused(true)}
       onMouseLeave={() => setHoverPaused(false)}
       onFocusCapture={() => setFocusPaused(true)}
@@ -117,7 +117,7 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
             />
           </motion.div>
         </AnimatePresence>
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/30" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 via-45% to-black/15" />
       </div>
 
       {/* Slide content (one group per slide, only the current one rendered) */}
@@ -125,12 +125,12 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
         role="group"
         aria-roledescription="slide"
         aria-label={`${index + 1} of ${n}`}
-        className="page-x absolute inset-x-0 bottom-[11.5rem] sm:bottom-[12.5rem]"
+        className="page-x flex flex-1 flex-col justify-end pb-8 pt-[6.5rem] md:pb-10"
       >
         <p className="sr-only" aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
           {`Slide ${index + 1} of ${n}: ${current.title}, ${DISCIPLINE_LABEL[current.discipline]}, ${current.year}`}
         </p>
-        <h1 className="meta mb-4 text-paper/80">Ostrel Atelier — architecture and interiors (fictional studio)</h1>
+        <p className="sr-only">Ostrel Atelier, architecture and interiors (fictional studio)</p>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={current.slug}
@@ -144,7 +144,7 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
               <p className="meta text-paper/80">
                 {pad2(index + 1)} — {DISCIPLINE_LABEL[current.discipline]} · {current.location}
               </p>
-              <p className="display-xl mt-3 [text-wrap:balance]">{current.title}</p>
+              <h1 data-hero-title className="display-xl mt-3 text-[clamp(3rem,min(13vw,22svh),13rem)] [text-wrap:balance]">{current.title}</h1>
             </div>
             <div className="md:col-span-4 md:pb-3">
               <p className="max-w-[34ch] text-[1.0625rem] leading-snug text-paper/90">{current.summary}</p>
@@ -161,7 +161,7 @@ export function HeroCarousel({ projects }: { projects: Project[] }) {
       </div>
 
       {/* Title rail + controls */}
-      <div className="absolute inset-x-0 bottom-0 border-t border-paper/20 bg-black/20 backdrop-blur-[2px]">
+      <div className="relative border-t border-paper/20 bg-black/25 backdrop-blur-[2px]">
         <div ref={rail} className="relative h-[5.25rem] overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]">
           <ul
             ref={railTrack}

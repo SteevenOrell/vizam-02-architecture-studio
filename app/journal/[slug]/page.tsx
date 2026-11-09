@@ -1,10 +1,24 @@
 import type { Metadata } from 'next';
-import Image from '@/components/ui/ResponsiveImage';
+import { Fragment } from 'react';
+import { DRAWINGS } from '@/components/drawings/by-name';
+import { PostCover } from '@/components/journal/PostCover';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { PostCard } from '@/components/journal/PostCard';
 import { formatDate, getPost, posts } from '@/content/journal';
+
+function PostFigure({ figure }: { figure: NonNullable<(typeof posts)[number]['figure']> }) {
+  const Drawing = DRAWINGS[figure.name];
+  return (
+    <figure className="!my-10 lg:-mr-24">
+      <div className="aspect-[16/10] overflow-hidden border border-hairline bg-paper">
+        <Drawing className="size-full" title={figure.title} />
+      </div>
+      <figcaption className="meta mt-3 text-stone">{figure.caption}</figcaption>
+    </figure>
+  );
+}
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -38,21 +52,24 @@ export default async function PostPage({ params }: PageProps<'/journal/[slug]'>)
 
       <div className="page-x mt-16">
         <div className="relative mx-auto max-w-[1040px] aspect-[16/9] overflow-hidden bg-hairline">
-          <Image src={post.cover.src} alt={post.cover.alt} fill priority sizes="100vw" placeholder="blur" className="object-contain" />
+          <PostCover post={post} priority sizes="(min-width: 1100px) 1040px, 100vw" />
         </div>
       </div>
 
       <div className="page-x mt-16 grid lg:grid-cols-12">
         <div className="body-copy space-y-6 lg:col-span-7 lg:col-start-4">
-          {post.body.map((b, i) =>
-            b.type === 'h2' ? (
-              <h2 key={i} className="pt-6 text-[1.75rem] font-medium tracking-tight">{b.text}</h2>
-            ) : b.type === 'quote' ? (
-              <blockquote key={i} className="statement border-l-2 border-oxide pl-6 !text-[clamp(1.5rem,2.6vw,2.4rem)]">{b.text}</blockquote>
-            ) : (
-              <p key={i} className="text-graphite/90">{b.text}</p>
-            ),
-          )}
+          {post.body.map((b, i) => (
+            <Fragment key={i}>
+              {b.type === 'h2' ? (
+                <h2 className="pt-6 text-[1.75rem] font-medium tracking-tight">{b.text}</h2>
+              ) : b.type === 'quote' ? (
+                <blockquote className="statement border-l-2 border-oxide pl-6 !text-[clamp(1.5rem,2.6vw,2.4rem)]">{b.text}</blockquote>
+              ) : (
+                <p className="text-graphite/90">{b.text}</p>
+              )}
+              {post.figure && post.figure.after === i ? <PostFigure figure={post.figure} /> : null}
+            </Fragment>
+          ))}
           <p className="meta border-t border-hairline pt-6 text-stone">Fictional journal entry — VIZAM concept project</p>
         </div>
       </div>
