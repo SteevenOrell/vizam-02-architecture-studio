@@ -83,7 +83,7 @@ for (const [width, height] of [[1440, 900], [390, 844]]) {
         expect(hit(s, m.text!), `sheet overlaps HUD text, chapter ${n}`).toBe(false);
         expect(hit(s, m.rail!), `sheet overlaps rail, chapter ${n}`).toBe(false);
         expect(hit(s, m.counter!), `sheet overlaps counter, chapter ${n}`).toBe(false);
-        await page.screenshot({ path: `docs/screenshots/home-study-${width}-ch${n}.png` });
+        await page.screenshot({ path: `test-results/shots/home-study-${width}-ch${n}.png` });
       }
     }
     await ctx.close();

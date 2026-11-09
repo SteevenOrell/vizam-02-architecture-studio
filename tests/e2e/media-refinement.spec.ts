@@ -20,16 +20,16 @@ for (const width of [390, 1440]) {
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollbarWidth)).toBe('none');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-    await page.screenshot({ path: `docs/screenshots/refined-${width}-hero.png` });
+    await page.screenshot({ path: `test-results/shots/refined-${width}-hero.png` });
 
     const selected = page.locator('[data-selected-project]').first();
     await selected.scrollIntoViewIfNeeded();
     await expect(selected.getByRole('heading')).toContainText('Olive Court House');
     await selected.locator('img').evaluate(async (el: HTMLImageElement) => { await el.decode(); });
     await expect(page.locator('header').first()).toBeInViewport();
-    await page.screenshot({ path: `docs/screenshots/refined-${width}-showcase.png` });
+    await page.screenshot({ path: `test-results/shots/refined-${width}-showcase.png` });
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
     await expect(page.getByRole('region', { name: 'Contact us', exact: true })).toBeVisible();
-    await page.screenshot({ path: `docs/screenshots/refined-${width}-footer.png` });
+    await page.screenshot({ path: `test-results/shots/refined-${width}-footer.png` });
   });
 }
