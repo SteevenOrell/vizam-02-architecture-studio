@@ -122,5 +122,5 @@ export const people = [
   { name: 'Rui Saldanha', role: 'Project architect', note: 'Hospitality and reuse. Fluent in planning law.' },
 ];
 
-/** Fictional concept data for the studio page stats. Counts elsewhere are derived from content. */
-export const studioFacts = { founded: 2014, people: 14, cities: site.cities };
+/** Fictional concept data for the studio stats. The head count is the people table, so every page agrees. */
+export const studioFacts = { founded: 2014, people: people.length, cities: site.cities };

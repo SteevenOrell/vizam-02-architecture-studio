@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { posts } from '@/content/journal';
 import { projects } from '@/content/projects';
-import { studioFacts } from '@/content/studio';
+import { people, studioFacts } from '@/content/studio';
 
 describe('studio facts and journal drawings', () => {
   it('has sensible fictional figures', () => {
     expect(studioFacts.founded).toBeGreaterThan(1990);
-    expect(studioFacts.people).toBeGreaterThan(0);
+    expect(studioFacts.people).toBe(people.length);
     expect(studioFacts.cities.length).toBe(2);
     expect(projects.length).toBeGreaterThan(0);
   });
