@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from '@/components/ui/ResponsiveImage';
 import { CinematicPhilosophy } from '@/components/home/CinematicPhilosophy';
-import { ArrowLink, PageIntro, SectionLabel } from '@/components/ui/bits';
+import { ClosingStatement } from '@/components/studio/ClosingStatement';
+import { PageIntro, SectionLabel } from '@/components/ui/bits';
 import { Reveal } from '@/components/ui/Reveal';
 import { img } from '@/content/images';
 
@@ -50,8 +51,8 @@ export default function PhilosophyPage() {
           “A building should look better in twenty years than on the day we leave.”
         </blockquote>
         <p className="meta mt-6 text-center text-stone">Studio motto (fictional)</p>
-        <div className="mt-12 flex justify-center"><ArrowLink href="/projects">See the principles in the work</ArrowLink></div>
       </section>
+      <ClosingStatement />
     </>
   );
 }

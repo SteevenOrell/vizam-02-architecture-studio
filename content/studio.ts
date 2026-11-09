@@ -121,3 +121,6 @@ export const people = [
   { name: 'Ada Noronha', role: 'Lighting & materials', note: 'Daylight studies and the sample library.' },
   { name: 'Rui Saldanha', role: 'Project architect', note: 'Hospitality and reuse. Fluent in planning law.' },
 ];
+
+/** Fictional concept data for the studio page stats. Counts elsewhere are derived from content. */
+export const studioFacts = { founded: 2014, people: 14, cities: site.cities };

@@ -10,6 +10,7 @@ export const posts: JournalPost[] = [
     excerpt: 'Why we draw staircases first, and why the best ones are wide enough to sit on.',
     readingTime: 5,
     cover: { src: img.journalSpiral, alt: 'Spiral staircase in black and white with a single light at the top' },
+    figure: { name: 'plan', after: 1, title: 'Ground floor plan of a fictional house study', caption: 'Fictional concept sheet: a ground-floor plan, drawn the way we draw every house, with the circulation worked out before the rooms.' },
     body: [
       { type: 'p', text: 'In most houses the stair is a corridor turned on its side: the shortest way between two floors. We prefer to treat it as a room that happens to rise.' },
       { type: 'h2', text: 'Landings are the point' },
@@ -41,6 +42,7 @@ export const posts: JournalPost[] = [
     excerpt: 'How a year of sun studies decides where a single window goes.',
     readingTime: 6,
     cover: { src: img.journalBlinds, alt: 'Blinds filtering sunlight into a long corridor' },
+    coverDrawing: { name: 'section', alt: 'Section drawing of a fictional house under a flat roof with a deep overhang, used to study where daylight lands' },
     body: [
       { type: 'p', text: 'Before we draw a plan we draw the sun. A simple model, a lamp and a turntable tell us more about a site than a week of desk studies.' },
       { type: 'h2', text: 'Morning, noon, evening' },

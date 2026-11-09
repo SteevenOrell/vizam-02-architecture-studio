@@ -67,6 +67,10 @@ export interface JournalPost {
   excerpt: string;
   readingTime: number;
   cover: Img;
+  /** Show an original SVG drawing as the cover (cards and post header) instead of the photo. The photo stays as the social image. */
+  coverDrawing?: { name: 'plan' | 'elevation' | 'section' | 'site' | 'axonometric'; alt: string };
+  /** Inline captioned drawing placed after the body block with this index. */
+  figure?: { name: 'plan' | 'elevation' | 'section' | 'site' | 'axonometric'; after: number; title: string; caption: string };
   body: { type: 'p' | 'h2' | 'quote'; text: string }[];
 }
 
