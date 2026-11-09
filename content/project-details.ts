@@ -4,7 +4,7 @@ import type { ProjectExtras } from './types';
 // and are shown on the site labelled as fictional concept data.
 export const projectDetails: Record<string, ProjectExtras> = {
   'halden-house': {
-    architects: ['Lena Marsk', 'Tiago Varela'],
+    architects: ['Inês Ostrel', 'Marta Quelhas'],
     tags: ['Cast in place', 'One sheltered lawn', 'Three offset volumes'],
     coordinates: '38.7981° N, 9.3876° W',
     context: {
@@ -22,7 +22,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'lumen-rooms': {
-    architects: ['Sofia Brandt', 'Rui Esteves'],
+    architects: ['Rui Saldanha', 'Jonas Halvorsen'],
     tags: ['Adaptive reuse', 'Three courtyards', 'Daylight corridors'],
     coordinates: '38.3793° N, 8.7866° W',
     context: {
@@ -40,7 +40,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'saline-pavilion': {
-    architects: ['Marta Quintela', 'Jonas Ekberg'],
+    architects: ['Inês Ostrel', 'Rui Saldanha'],
     tags: ['Raised on a plinth', 'Folded white roof', 'Lit stair to the sky'],
     coordinates: '40.6405° N, 8.7338° W',
     context: {
@@ -58,7 +58,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'casa-velo': {
-    architects: ['Inês Calado', 'Mateus Roque'],
+    architects: ['Marta Quelhas', 'Inês Ostrel'],
     tags: ['Walls before windows', 'Rammed earth', 'One long axis'],
     coordinates: '38.5667° N, 7.9078° W',
     context: {
@@ -76,7 +76,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'northfold-works': {
-    architects: ['Vera Lindqvist', 'Duarte Faria'],
+    architects: ['Rui Saldanha', 'Marta Quelhas'],
     tags: ['Column grid as plan', 'Light by the north', 'Low-carbon fit-out'],
     coordinates: '41.1496° N, 8.6109° W',
     context: {
@@ -94,7 +94,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'olive-court-house': {
-    architects: ['Clara Mendonça', 'Axel Nordin'],
+    architects: ['Inês Ostrel', 'Rui Saldanha'],
     tags: ['Shade first', 'Pale travertine', 'Olive grove terrace'],
     coordinates: '38.0153° N, 7.8650° W',
     context: {
@@ -112,7 +112,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'mar-de-cal': {
-    architects: ['Helena Soares', 'Oskar Vinter'],
+    architects: ['Marta Quelhas', 'Rui Saldanha'],
     tags: ['Curved lime plaster', 'Arched passage', 'Horizon terrace'],
     coordinates: '37.1020° N, 8.9967° W',
     context: {
@@ -130,7 +130,7 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'mira-residence': {
-    architects: ['Beatriz Camacho', 'Emil Sørensen'],
+    architects: ['Jonas Halvorsen', 'Inês Ostrel'],
     tags: ['Outdoor rooms', 'Limestone piers', 'Open shared entrance'],
     coordinates: '38.7223° N, 9.1393° W',
     context: {
@@ -148,17 +148,17 @@ export const projectDetails: Record<string, ProjectExtras> = {
     },
   },
   'mire-apartment': {
-    architects: ['Amélia Torres', 'Nils Haugen'],
+    architects: ['Jonas Halvorsen', 'Marta Quelhas'],
     tags: ['Keep the shell', 'One long room', 'Soft edges'],
     coordinates: '38.7139° N, 9.1334° W',
   },
   'ombra-townhouse': {
-    architects: ['Karen Dahl', 'Pedro Alvim'],
+    architects: ['Jonas Halvorsen', 'Rui Saldanha'],
     tags: ['Honest repairs', 'Cast and polished', 'One gallery wall'],
     coordinates: '55.6761° N, 12.5683° E',
   },
   'kiln-yard-studios': {
-    architects: ['Rosa Valente', 'Anders Holm'],
+    architects: ['Rui Saldanha', 'Jonas Halvorsen'],
     tags: ['Workshop first', 'Retained brick', 'Rain-fed green wall'],
     coordinates: '41.5454° N, 8.4265° W',
   },

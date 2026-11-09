@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getContext, projects } from '@/content/projects';
+import { people } from '@/content/studio';
 import { initials } from '@/lib/initials';
 import { splitTitle } from '@/lib/split-title';
 
@@ -10,6 +11,11 @@ describe('project details (fictional C1 fields)', () => {
       expect(p.tags, p.slug).toHaveLength(3);
       expect(p.coordinates, p.slug).toMatch(/^\d{1,2}\.\d{4}° [NS], \d{1,3}\.\d{4}° [EW]$/);
     }
+  });
+
+  it('project architects are people from the studio table, so the head count stays consistent', () => {
+    const names = new Set(people.map((x) => x.name));
+    for (const p of projects) for (const a of p.architects) expect(names.has(a), `${p.slug}: ${a}`).toBe(true);
   });
 
   it('every project resolves a context with 3 stats and 3 rows, with or without its own data', () => {
