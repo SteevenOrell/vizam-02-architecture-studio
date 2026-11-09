@@ -22,7 +22,7 @@ export function Sheet({
   name: string;
   /** Sheet number such as "03". */
   sheet: string;
-  /** Short note for the title block, such as "Scale bar in metres". */
+  /** Short note for the title block, such as "Scale in m". */
   note: string;
   defs?: ReactNode;
 }) {
@@ -48,13 +48,13 @@ export function Sheet({
         <rect x="626" y="552" width="360" height="74" fill={C.paper} />
       </g>
       <g className="dw-h">
-        <path d="M626 576H986M626 600H986M826 576V600M826 600V626" />
+        <path d="M626 576H986M626 600H986M860 576V626" />
       </g>
       <text x="636" y="569" className="dw-t dw-tb">OSTREL ATELIER · OLIVE HOUSE</text>
       <text x="636" y="593" className="dw-t dw-tb" fill={C.ink}>{name.toUpperCase()}</text>
-      <text x="836" y="593" className="dw-t">SHEET {sheet} / 05</text>
-      <text x="636" y="617" className="dw-t dw-td">Fictional concept, VIZAM</text>
-      <text x="836" y="617" className="dw-t">{note}</text>
+      <text x="870" y="593" className="dw-t">SHEET {sheet}/05</text>
+      <text x="636" y="617" className="dw-t dw-td">Fictional concept</text>
+      <text x="870" y="617" className="dw-t">{note}</text>
     </svg>
   );
 }

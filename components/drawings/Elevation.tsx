@@ -68,7 +68,7 @@ export function Elevation({ className, title = 'South elevation of the fictional
       label={title}
       name="South elevation"
       sheet="03"
-      note="Scale bar in metres"
+      note="Scale in m"
       defs={
         <>
           <pattern id={`${id}-glass`} width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">

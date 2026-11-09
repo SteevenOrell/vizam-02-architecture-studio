@@ -222,7 +222,7 @@
   fill: none;
 }
 @media (max-width: 640px) {
-  .dw { --lw: 2.3; --tx: 1.18; }
+  .dw { --lw: 2.3; --tx: 1.4; }
 }
 .dw-k, .dw-o, .dw-f, .dw-m, .dw-h, .dw-d, .dw-ax { stroke-linejoin: round; }
 .dw-k { stroke: #23211d; stroke-width: calc(var(--dw-cut) * var(--lw)); }

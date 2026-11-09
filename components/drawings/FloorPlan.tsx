@@ -73,7 +73,7 @@ export function FloorPlan({ className, title = 'Ground-floor plan of the fiction
       label={title}
       name="Ground-floor plan"
       sheet="02"
-      note="Scale bar in metres"
+      note="Scale in m"
       defs={
         <pattern id={`${id}-stone`} width="14" height="9" patternUnits="userSpaceOnUse">
           <path d="M0 0.3H14M0 4.8H14M5 0.3V4.8M11 4.8V9" stroke={C.hair} strokeWidth="0.45" fill="none" />

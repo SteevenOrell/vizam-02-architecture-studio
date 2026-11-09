@@ -66,7 +66,7 @@ export function SitePlan({ className, title = 'Site plan of the fictional Olive 
       label={title}
       name="Site plan"
       sheet="01"
-      note="Scale bar in metres"
+      note="Scale in m"
       defs={
         <>
           <pattern id={`${id}-gravel`} width="7" height="7" patternUnits="userSpaceOnUse">

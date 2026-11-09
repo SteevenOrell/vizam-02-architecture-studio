@@ -205,7 +205,7 @@ export function Axonometric({ className, title = 'Exploded axonometric of the fi
   // Dotted guides tie the layers' corners together
   const corners: [number, number][] = [[0, 8], [19.6, 0], [0, 0], [19.6, 7]];
   return (
-    <Sheet className={className} label={title} name="Exploded axonometric" sheet="05" note="Exploded view">
+    <Sheet className={className} label={title} name="Exploded axonometric" sheet="05" note="Exploded">
       <g data-layer="0">
         <g data-axo-guides data-fade className="dw-h">
           {corners.map(([x, y], i) => (

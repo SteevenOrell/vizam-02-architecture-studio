@@ -31,7 +31,7 @@ export function Section({ className, title = 'Section A-A through the fictional 
       label={title}
       name="Section A-A"
       sheet="04"
-      note="Scale bar in metres"
+      note="Scale in m"
       defs={
         <>
           <pattern id={`${id}-ins`} width="7" height="7" patternUnits="userSpaceOnUse">
