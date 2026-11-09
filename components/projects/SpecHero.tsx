@@ -24,7 +24,9 @@ export function SpecHero({ project: p }: { project: Project }) {
   return (
     <header className="project-hero on-dark relative isolate flex min-h-[max(92svh,36rem)] flex-col overflow-hidden bg-night text-paper">
       <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="(max-aspect-ratio: 16/9) 178svh, 100vw" placeholder="blur" className="object-cover" style={{ objectPosition: p.cover.focus ?? '50% 50%' }} />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/15 via-40% to-black/85" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 via-40% to-black/85" />
+      {/* Extra shade behind the small meta and tags at the top, which can sit on a bright sky */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-black/50 via-black/25 to-transparent" />
 
       <div className="page-x relative flex flex-1 flex-col gap-8 pb-10 pt-24 [text-shadow:0_1px_14px_rgb(0_0_0/0.5)] md:gap-10 md:pb-14 md:pt-28">
         <div>
