@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-08T20:08:25.820Z",
+  "date": "2026-11-09T00:58:29.231Z",
   "results": [
     {
       "step": "lint",
@@ -47,7 +47,7 @@
       "detail": ""
     },
     {
-      "step": "layout: no horizontal scroll from 300 px up (13 routes)",
+      "step": "layout: no horizontal scroll from 300 px up (22 routes)",
       "status": "PASS",
       "detail": ""
     },
