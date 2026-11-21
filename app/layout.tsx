@@ -3,6 +3,7 @@ import { JetBrains_Mono, Newsreader, Schibsted_Grotesk } from 'next/font/google'
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { site } from '@/content/studio';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const grotesk = Schibsted_Grotesk({ subsets: ['latin'], variable: '--font-grotesk', display: 'swap' });
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           </main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
